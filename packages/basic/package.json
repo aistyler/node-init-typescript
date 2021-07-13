@@ -1,0 +1,17 @@
+{
+  "name": "node-init-typescript-basic",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "dist": "tsc --build",
+    "dist:clean": "rm -rf ./dist",
+    "test": "jest src"
+  },
+  "devDependencies": {
+    "@types/jest": "~26.0.24",
+    "@types/node": "~16.3.1",
+    "jest": "~27.0.6",
+    "ts-jest": "~27.0.3",
+    "ts-node": "~10.1.0",
+    "typescript": "~4.3.5"
+  }
+}
