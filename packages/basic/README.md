@@ -13,5 +13,5 @@
 - e.g.
 
   ```sh
-  npx aistyler/node-init -o ./tmp aistyler/node-init-typescript
+  npx aistyler/node-init -o ./tmp aistyler/node-init-typescript "packages/basic/**"
   ```
