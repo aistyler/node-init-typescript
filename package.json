@@ -4,6 +4,7 @@
   "scripts": {
   },
   "devDependencies": {
+    "@types/jest": "~26.0.24"
   },
   "workspaces": [
     "packages/*"
