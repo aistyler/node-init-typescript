@@ -1,13 +1,13 @@
-# node-init-typescript-basic
+# node-init-typescript-lint
 
 ## Technologies
 
 - typescript
-- jest( with ts-jest)
+- eslint
 
 ## Usage
 
-```npx aistyler/node-init {options} aistyler/node-init-typescript "packages/basic/**"```
+```npx aistyler/node-init {options} aistyler/node-init-typescript "packages/lint/**"```
 
 - See [aistyler/node-init](https://github.com/aistyler/node-init) for details.
 - e.g.
