@@ -6,14 +6,15 @@
     "dev": "ts-node -r tsconfig-paths/register src/index.ts",
     "dev:lib": "jest --watch src/*",
     "start": "node dist/index.js",
-    "dist": "tsc --build",
-    "dist:clean": "rm -rf ./dist",
+    "dist": "tsc --build && babel ./.cache -d ./dist",
+    "dist:clean": "rm -rf ./.cache ./dist",
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
     "test": "jest src",
     "all": "yarn test && yarn lint && yarn dist && yarn dev"
   },
   "devDependencies": {
+    "@babel/cli": "~7.14.5",
     "@babel/core": "~7.14.0",
     "@babel/eslint-parser": "~7.14.0",
     "@babel/plugin-proposal-decorators": "~7.14.0",
