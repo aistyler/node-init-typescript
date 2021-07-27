@@ -1,3 +1,4 @@
+// jest.config.js
 const pathconfig = require("./pathconfig");
 
 module.exports = {
@@ -8,5 +9,5 @@ module.exports = {
   },
   // test env
   testEnvironment: "node",
-  preset: "ts-jest",
+  preset: "ts-jest/presets/js-with-ts",
 };

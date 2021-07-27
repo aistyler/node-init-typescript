@@ -128,7 +128,6 @@ module.exports = {
   settings: {
     "import/resolver": {
       "root-import": aliases,
-      "babel-module": {}, // resolve babel path aliases
     },
   },
 };
