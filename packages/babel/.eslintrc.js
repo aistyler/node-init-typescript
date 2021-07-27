@@ -32,14 +32,14 @@ const dev_ts_rules = {
 const prettierConfig = {
   endOfLine: "lf",
   semi: true,
-  singleQuote: false,
-  tabWidth: 2,
   trailingComma: "es5",
+  printWidth: 100,
+  singleQuote: false,
+  quoteProps: "preserve",
+  tabWidth: 2,
   proseWrap: "preserve",
   arrowParens: "always",
-  printWidth: 100,
   bracketSpacing: true,
-  quoteProps: "preserve",
 };
 
 /**
@@ -78,13 +78,15 @@ const config = {
     "quotes": [0, "double", { avoidEscape: true, allowTemplateLiterals: true }],
     "quote-props": [1, "consistent-as-needed"],
     "json/*": [2, "allowComments"],
-    "prettier/prettier": [1, prettierConfig, { usePrettierrc: false }],
     "no-template-curly-in-string": [0],
     "no-underscore-dangle": [0],
     "jest/no-done-callback": [1],
     "no-unused-vars": [1, { argsIgnorePattern: "^_.*_$" }],
     "import/prefer-default-export": [0],
     "spaced-comment": [0],
+    // prettier
+    "prettier/prettier": [1, prettierConfig, { usePrettierrc: false }],
+    "max-len": [1, { code: prettierConfig.printWidth, ignoreUrls: true }],
     ...(process.env.NODE_ENV === "production" ? {} : dev_rules),
   },
 };
