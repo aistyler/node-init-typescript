@@ -1,6 +1,6 @@
 # node-init-typescript-babel
 
-## Technologies
+## Keywords
 
 - typescript and javascript
 - jest

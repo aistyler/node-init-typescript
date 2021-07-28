@@ -1,6 +1,6 @@
 # node-init-typescript-basic
 
-## Technologies
+## Keywords
 
 - typescript
 - jest( with ts-jest)
