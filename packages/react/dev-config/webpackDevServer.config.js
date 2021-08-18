@@ -11,14 +11,11 @@ const paths = require("./paths")(true);
 const getHttpsConfig = require("./getHttpsConfig");
 
 const host = process.env.HOST || "localhost";
-const sockHost = process.env.WDS_SOCKET_HOST;
-const sockPath = process.env.WDS_SOCKET_PATH; // default: '/sockjs-node'
-const sockPort = process.env.WDS_SOCKET_PORT;
 
 module.exports = function (proxy = undefined, allowedHost = undefined) {
   console.log("############ Project Path Info. ################");
   console.log(paths);
-  console.log("watch ignore:", ignoredFiles(paths.appSrcDir));
+  //console.log("watch ignore:", ignoredFiles(paths.appSrcDir));
 
   return {
     // WebpackDevServer 2.4.3 introduced a security fix that prevents remote

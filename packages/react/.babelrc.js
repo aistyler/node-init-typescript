@@ -3,7 +3,7 @@ const pathconfig = require("./pathconfig");
 
 module.exports = {
   "presets": [
-    ["@babel/preset-env", {}],
+    ["@babel/preset-env", { loose: true }],
     ["@babel/preset-react", {}],
     ["react-app", {}],
     ["@babel/preset-typescript", {}],
@@ -18,5 +18,7 @@ module.exports = {
         },
       },
     ],
+    // make silence the "loose" warning
+    ["@babel/plugin-proposal-private-methods", { "loose": true }],
   ],
 };
