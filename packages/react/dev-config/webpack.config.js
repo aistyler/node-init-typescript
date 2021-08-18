@@ -2,22 +2,24 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin");
 
-const { appDir } = require("./paths");
+const paths = require("./paths");
 const devServerConfig = require("./webpackDevServer.config");
-
-const env = {
-  PUBLIC_URL: ".",
-};
 
 function genConfig(webpackEnv) {
   const isDev = webpackEnv === "development";
   const isProd = webpackEnv === "production";
 
+  const { appDir, appIndex, appBuildDir, appSrcDir, publicIndex, publicUrlOrPath } = paths(isDev);
+
+  const env = {
+    PUBLIC_URL: publicUrlOrPath,
+  };
+
   return {
     mode: process.env.NODE_ENV || "development",
-    entry: path.resolve(appDir, "src/index.tsx"),
+    entry: appIndex,
     output: {
-      path: path.resolve(appDir, "build"),
+      path: appBuildDir,
       filename: "index.bundle.js",
     },
     resolve: {
@@ -28,7 +30,7 @@ function genConfig(webpackEnv) {
       rules: [
         {
           test: /\.(js|mjs|jsx|ts|tsx)$/,
-          include: path.resolve(appDir, "src"),
+          include: appSrcDir,
           use: {
             loader: "babel-loader",
           },
@@ -53,7 +55,7 @@ function genConfig(webpackEnv) {
     plugins: [
       new HtmlWebpackPlugin({
         inject: true,
-        template: path.resolve(appDir, "public/index.html"),
+        template: publicIndex,
         ...(isProd
           ? {
               minify: {
@@ -78,9 +80,20 @@ function genConfig(webpackEnv) {
       // in `package.json`, in which case it will be the pathname of that URL.
       new InterpolateHtmlPlugin(HtmlWebpackPlugin, env),
     ],
+    //
+    // dev-server
     ...(isDev ? { devServer: devServerConfig() } : undefined),
+    //
+    // misc
+    // Stop compilation early in production
+    bail: isProd,
+    // Some libraries import Node modules but don't use them in the browser.
+    // Tell webpack to provide empty mocks for them so importing them works.
+    node: {
+      global: false,
+    },
   };
-};
+}
 
 module.exports = (_, argv) => {
   if (argv.mode === "development") {

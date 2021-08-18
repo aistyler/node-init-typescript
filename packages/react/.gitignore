@@ -52,3 +52,8 @@ ehthumbs_vista.db
 
 # Dump file
 *.stackdump
+
+#############################################
+## Webpack ###
+# build output
+build

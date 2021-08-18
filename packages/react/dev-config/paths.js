@@ -8,11 +8,13 @@ const resolvePath = (relativePath) => path.resolve(appDir, relativePath);
 const publicUrlOrPath = (isDev) =>
   getPublicUrlOrPath(isDev, require(resolvePath("package.json")).homepage, process.env.PUBLIC_URL);
 
-module.exports = {
+module.exports = (isDev = false) => ({
   appDir,
   appPath: resolvePath("."),
-  appSrc: resolvePath("src"),
+  appSrcDir: resolvePath("src"),
+  appBuildDir: resolvePath("build"),
   appIndex: resolvePath("src/index"),
   publicDir: resolvePath("public"),
-  publicUrlOrPath,
-};
+  publicIndex: resolvePath("public/index.html"),
+  publicUrlOrPath: publicUrlOrPath(isDev),
+});
