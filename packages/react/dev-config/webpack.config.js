@@ -92,6 +92,10 @@ function genConfig(webpackEnv) {
     node: {
       global: false,
     },
+    //
+    // workaround dev-server bug
+    // See https://github.com/webpack/webpack-dev-server/issues/2758#issuecomment-710086019
+    target: isProd ? "browserslist" : "web",
   };
 }
 
