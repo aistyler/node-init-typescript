@@ -84,6 +84,9 @@ function genConfig(webpackEnv) {
     // dev-server
     ...(isDev ? { devServer: devServerConfig() } : undefined),
     //
+    // devtool source-map
+    devtool: isDev ? "inline-source-map" : false,
+    //
     // misc
     // Stop compilation early in production
     bail: isProd,
