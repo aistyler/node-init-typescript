@@ -100,6 +100,7 @@ function genConfig(webpackEnv) {
 }
 
 module.exports = (_, argv) => {
+  process.env.NODE_ENV = argv.mode;
   if (argv.mode === "development") {
     return genConfig(argv.mode);
   }
