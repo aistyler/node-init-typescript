@@ -4,6 +4,6 @@ import App from "./App";
 
 test("renders header", () => {
   render(<App />);
-  const ele = screen.getByText(/File Reader/i);
+  const ele = screen.getByText(/Header/i);
   expect(ele).toBeInTheDocument();
 });

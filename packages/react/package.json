@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "webpack serve -c ./dev-config/webpack.config.js --mode=development --hot",
+    "dev": "webpack serve -c ./dev-config/webpack.config.js --mode=development",
     "dev:lib": "jest --watch src/*",
     "build": "webpack build -c ./dev-config/webpack.config.js --mode=production",
     "dist": "tsc --build && babel ./.cache -d ./dist",
@@ -11,6 +11,7 @@
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
     "test": "jest src",
+    "test:watch": "jest src --watch",
     "all": "yarn test && yarn lint && yarn dist && yarn dev"
   },
   "dependencies": {
@@ -34,8 +35,11 @@
     "@types/react-dom": "~17.0.9",
     "@typescript-eslint/eslint-plugin": "~4.28.0",
     "@typescript-eslint/parser": "~4.28.0",
+    "babel-jest": "~27.0.6",
     "babel-plugin-module-resolver": "~4.1.0",
     "babel-plugin-root-import": "^5.0.0",
+    "babel-preset-react-app": "~10.0.0",
+    "camelcase": "~6.2.0",
     "eslint": "~7.26.0",
     "eslint-config-prettier": "~8.3.0",
     "eslint-import-resolver-babel-module": "~5.3.1",
@@ -46,6 +50,9 @@
     "eslint-plugin-prettier": "~3.4.0",
     "prettier": "~2.3.0",
     "jest": "~27.0.6",
+    "jest-resolve": "~27.0.6",
+    "jest-watch-typeahead": "~0.6.4",
+    "react-app-polyfill": "~2.0.0",
     "react-dev-utils": "~11.0.4",
     "tsconfig-paths": "~3.10.1",
     "ts-jest": "~27.0.3",

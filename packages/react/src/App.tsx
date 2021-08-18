@@ -7,7 +7,7 @@ const App: React.FC<Props> = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Header~</p>
+        <p>Header</p>
       </header>
 
       <main>
