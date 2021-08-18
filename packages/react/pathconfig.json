@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "./.cache",
+    "baseUrl": ".",
+    "paths": {
+      "@/src/*": ["./src/*"],
+      "@/lib/*": ["./src/lib/*"]
+    }
+  },
+  "babel": {
+    "root": ".",
+    "alias": {
+      "@/src": "./.cache",
+      "@/lib": "./.cache/lib"
+    }
+  },
+  "jest": {
+    "^@/src/(.*)$": "<rootDir>/src/$1",
+    "^@/lib/(.*)$": "<rootDir>/src/lib/$1"
+  },
+  "webpack": {
+    
+  }
+}
