@@ -1,11 +1,6 @@
 {
   "name": "node-init-typescript",
   "private": true,
-  "scripts": {
-  },
-  "devDependencies": {
-    "@types/jest": "~26.0.24"
-  },
   "workspaces": [
     "packages/*"
   ],

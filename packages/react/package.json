@@ -7,8 +7,6 @@
     "dev": "webpack serve -c ./dev-config/webpack.config.js --mode=development",
     "dev:lib": "jest --watch src/*",
     "build": "webpack build -c ./dev-config/webpack.config.js --mode=production",
-    "dist": "tsc --build && babel ./.cache -d ./dist",
-    "dist:clean": "rm -rf ./.cache ./dist",
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
     "test": "jest src",
