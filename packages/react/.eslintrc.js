@@ -1,6 +1,8 @@
 // .eslintrc.js
 // off: 0, warn: 1, error: 2
 
+const { eslint: aliases } = require("./pathconfig.json");
+
 //
 // rules for javascript development
 const dev_rules = {
@@ -120,8 +122,6 @@ const configTS = {
     ...(process.env.NODE_ENV === "production" ? {} : dev_ts_rules),
   },
 };
-
-const { eslint: aliases } = require("./pathconfig.json");
 
 module.exports = {
   root: true, // do not use parent's props
