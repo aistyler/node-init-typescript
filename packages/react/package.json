@@ -2,6 +2,7 @@
   "name": "node-init-typescript-react",
   "private": true,
   "version": "1.0.0",
+  "homepage": "/",
   "scripts": {
     "dev": "webpack serve -c ./dev-config/webpack.config.js --mode=development",
     "dev:lib": "jest --watch src/*",
