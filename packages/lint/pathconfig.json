@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outDir": "./.cache",
+    "baseUrl": ".",
+    "paths": {
+      "@/src/*": ["./src/*"],
+      "@/lib/*": ["./src/lib/*"]
+    }
+  }
+}
