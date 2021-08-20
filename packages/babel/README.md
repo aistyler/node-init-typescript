@@ -3,7 +3,7 @@
 ## Keywords
 
 - typescript and javascript
-- jest
+- jest/tsjest
 - babel
 - eslint
 - path aliases

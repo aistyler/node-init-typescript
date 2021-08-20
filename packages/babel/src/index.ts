@@ -1,6 +1,6 @@
 import hello from "@/lib/hello";
-import my from "@/lib/my";
-import world from "@/src/lib/world";
+import my from "@/src/lib/my";
+import world from "@/lib/world";
 
 // export libs
 export { hello, my, world };
