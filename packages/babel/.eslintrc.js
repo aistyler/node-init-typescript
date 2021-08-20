@@ -179,5 +179,6 @@ module.exports = {
         extensions: [".js", ".jsx", ".ts", ".tsx", ".es", ".es6", ".mjs"],
       },
     },
+    "react": { version: "detect" },
   },
 };
