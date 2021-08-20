@@ -1,5 +1,5 @@
 const path = require("path");
-const pathconfig = require("./pathconfig.json");
+const { babel: aliases } = require("./pathconfig.json");
 
 const useReact = false;
 
@@ -30,16 +30,15 @@ module.exports = {
     ],
   ],
   plugins: [
-    [
-      "babel-plugin-module-resolver",
-      {
-        root: [path.resolve(pathconfig.babel.root)],
-        alias: {
-          ...pathconfig.babel.alias,
-        },
-      },
-    ],
+    // path aliases using module-resolve
+    ["babel-plugin-module-resolver", aliases],
   ],
+  parserOpts: {
+    sourceType: "module",
+  },
+  targets: {
+    node: "current",
+  },
   env: {
     development: {
       presets: [
@@ -48,6 +47,7 @@ module.exports = {
     },
     production: {
       ignore: [/\.spec\.js$/,/\.spec\.ts$/],
+      comments: false,
     }
   },
 };

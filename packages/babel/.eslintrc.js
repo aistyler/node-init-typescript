@@ -118,15 +118,12 @@ const configJS = {
     jest: true,
     browser: useReact,
   },
-  //parser: "@babel/eslint-parser",
   parserOptions: {
     ecmaFeatures: {
       jsx: useReact,
     },
     sourceType: "module",
-    babelOptions: {
-      configFile: "./babel.config.js",
-    },
+    babelOptions: {},
   },
   globals: {},
   plugins: [...common_plugins, ...(useReact ? common_plugins_react : [])],
@@ -176,8 +173,9 @@ module.exports = {
   ...configJS,
   overrides: [configTS],
   settings: {
+    // path aliases
     "import/resolver": {
-      // use `eslint-import-resolver-`babel-module
+      // use `eslint-import-resolver-`babel-module for babel-plugin-module-resolver
       "babel-module": {},
     },
   },
