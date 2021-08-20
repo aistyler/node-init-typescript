@@ -4,7 +4,10 @@ const pathconfig = require("./pathconfig.json");
 const useReact = false;
 
 module.exports = {
-  test: /\.(js|jsx|ts|tsx)$/,
+  test: [
+    /\.js$/,
+    /\.ts$/,
+  ],
   presets: [
     [
       "@babel/preset-env",
@@ -43,5 +46,8 @@ module.exports = {
         ...(useReact ? ["@babel/preset-react", { development: true }] : []),
       ]
     },
+    production: {
+      ignore: [/\.spec\.js$/,/\.spec\.ts$/],
+    }
   },
 };
