@@ -1,5 +1,5 @@
 // jest.config.js
-const pathconfig = require("./pathconfig");
+const pathconfig = require("./pathconfig.json");
 
 module.exports = {
   // module resolution

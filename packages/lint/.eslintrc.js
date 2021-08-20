@@ -2,6 +2,7 @@
 // off: 0, warn: 1, error: 2
 
 const { eslint: aliases } = require("./pathconfig.json");
+const useReact = false;
 
 //
 // rules for javascript development
@@ -44,15 +45,77 @@ const prettierConfig = {
   bracketSpacing: true,
 };
 
+//
+// common
+//
+const common_rules = {
+  "no-use-before-define": [0],
+  "no-template-curly-in-string": [0],
+  "no-underscore-dangle": [0],
+  "no-multi-assign": [0],
+  "no-plusplus": [0],
+  "no-unused-expressions": [2, { allowShortCircuit: true }],
+  "linebreak-style": [2, "unix"],
+  "max-len": [1, { code: prettierConfig.printWidth, ignoreUrls: true }],
+  "quotes": [0, "double", { avoidEscape: true, allowTemplateLiterals: true }],
+  "quote-props": [1, "consistent-as-needed"],
+  "prettier/prettier": [1, prettierConfig, { usePrettierrc: false }],
+  "arrow-body-style": "off",
+  "prefer-arrow-callback": "off",
+  "spaced-comment": [0],
+  "import/prefer-default-export": [0],
+  "import/order": [0],
+  "import/extensions": [
+    2,
+    "ignorePackages",
+    {
+      js: "never",
+      jsx: "never",
+      ts: "never",
+      tsx: "never",
+    },
+  ],
+  "json/*": [2, "allowComments"],
+  "jest/no-done-callback": [1],
+};
+
+const common_plugins = ["prettier", "import", "json", "jest"];
+const common_extends = [
+  "eslint:recommended",
+  "plugin:prettier/recommended",
+  "plugin:import/recommended",
+  "plugin:json/recommended",
+  "plugin:jest/recommended",
+];
+
+//
+// react common
+//
+const common_rules_react = {
+  "react/prop-types": [0],
+  "react/require-default-props": [0],
+  "react/jsx-curly-brace-presence": [0],
+  "react/jsx-one-expression-per-line": [0],
+  "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx", ".ts", ".tsx"] }],
+  "jsx-a11y/control-has-associated-label": [0],
+  "jsx-a11y/anchor-has-content": [1],
+};
+const common_plugins_react = ["react", "react-hooks", "jsx-a11y"];
+const common_extends_react = [
+  "plugin:react/recommended",
+  "plugin:react-hooks/recommended",
+  "plugin:jsx-a11y/recommended",
+];
+
 /**
  * eslint config for *.js?x
  */
-const config = {
+const configJS = {
   env: {
     // https://eslint.org/docs/user-guide/configuring/language-options#specifying-environments
     commonjs: true,
-    es6: true,
     node: true,
+    es6: true,
     jest: true,
     browser: false,
   },
@@ -61,34 +124,15 @@ const config = {
       jsx: false,
     },
     sourceType: "module",
-    ecmaVersion: 2018,
+    ecmaVersion: 2019,
   },
-  globals: {
-    strapi: "writable",
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
-  },
-  plugins: ["prettier", "jest", "json"] /* react ==> "react", "react-hooks", "jsx-a11y" */,
-  extends: [
-    /* react ==> "plugin:react/recommended", "airbnb" */ "eslint:recommended",
-    "plugin:prettier/recommended",
-    "plugin:jest/recommended",
-    "plugin:json/recommended",
-  ],
+  globals: {},
+  plugins: [...common_plugins, ...(useReact ? common_plugins_react : [])],
+  extends: [...common_extends, ...(useReact ? common_extends_react : [])],
   rules: {
-    "linebreak-style": [2, "unix"],
-    "quotes": [0, "double", { avoidEscape: true, allowTemplateLiterals: true }],
-    "quote-props": [1, "consistent-as-needed"],
-    "json/*": [2, "allowComments"],
-    "no-template-curly-in-string": [0],
-    "no-underscore-dangle": [0],
-    "jest/no-done-callback": [1],
-    "no-unused-vars": [1, { argsIgnorePattern: "^_.*_$" }],
-    "import/prefer-default-export": [0],
-    "spaced-comment": [0],
-    // prettier
-    "prettier/prettier": [1, prettierConfig, { usePrettierrc: false }],
-    "max-len": [1, { code: prettierConfig.printWidth, ignoreUrls: true }],
+    "no-unused-vars": [1, { argsIgnorePattern: "^_" }],
+    ...common_rules,
+    ...(useReact ? common_rules_react : {}),
     ...(process.env.NODE_ENV === "production" ? {} : dev_rules),
   },
 };
@@ -99,33 +143,32 @@ const config = {
 const configTS = {
   files: ["*.ts", "*.tsx"],
   parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint"],
+  plugins: [...common_plugins, ...(useReact ? common_plugins_react : []), "@typescript-eslint"],
   extends: [
-    "eslint:recommended",
-    "plugin:prettier/recommended",
+    ...common_extends,
+    ...(useReact ? common_extends_react : []),
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
   ],
   rules: {
-    "quotes": [0],
+    ...common_rules,
+    ...(useReact ? common_rules_react : {}),
+    "@typescript-eslint/triple-slash-reference": [0],
     "@typescript-eslint/quotes": [0, "double", { avoidEscape: true, allowTemplateLiterals: true }],
     "@typescript-eslint/explicit-function-return-type": [0],
     "@typescript-eslint/no-explicit-any": [0],
     "@typescript-eslint/no-var-requires": [0],
-    "no-use-before-define": [0],
-    "import/prefer-default-export": [0],
     "@typescript-eslint/no-use-before-define": [1],
     "@typescript-eslint/no-empty-function": [1],
-    "@typescript-eslint/no-unused-vars": [1, { argsIgnorePattern: "^_" }],
+    "@typescript-eslint/no-unused-vars": configJS.rules["no-unused-vars"],
     "@typescript-eslint/ban-ts-comment": [1],
-    "import/order": [0],
     ...(process.env.NODE_ENV === "production" ? {} : dev_ts_rules),
   },
 };
 
 module.exports = {
   root: true, // do not use parent's props
-  ...config,
+  ...configJS,
   overrides: [configTS],
   settings: {
     "import/resolver": {

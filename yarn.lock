@@ -1173,7 +1173,7 @@
     "@babel/helper-plugin-utils" "^7.14.5"
     "@babel/plugin-syntax-typescript" "^7.14.5"
 
-"@babel/plugin-transform-typescript@^7.14.5":
+"@babel/plugin-transform-typescript@^7.14.5", "@babel/plugin-transform-typescript@~7.14.0":
   version "7.14.6"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-typescript/-/plugin-transform-typescript-7.14.6.tgz#6e9c2d98da2507ebe0a883b100cde3c7279df36c"
   integrity sha512-XlTdBq7Awr4FYIzqhmYY80WN0V0azF74DMPyFqVHBvf81ZUgc4X7ZOpx6O8eLDK6iM5cCQzeyJw0ynTaefixRA==
@@ -1941,7 +1941,7 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@*":
+"@types/jest@*", "@types/jest@~27.0.1":
   version "27.0.1"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-27.0.1.tgz#fafcc997da0135865311bb1215ba16dba6bdf4ca"
   integrity sha512-HTLpVXHrY69556ozYkcq47TtQJXpcWAWfkoqz+ZGz2JnmZhzlRjprCIyFnetSy8gpDWwTTGBcRVv1J1I1vBrHw==
@@ -1981,6 +1981,11 @@
   version "16.3.3"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-16.3.3.tgz#0c30adff37bbbc7a50eb9b58fae2a504d0d88038"
   integrity sha512-8h7k1YgQKxKXWckzFCMfsIwn0Y61UK6tlD6y2lOb3hTOIMlK3t9/QwHOhc81TwU+RMf0As5fj7NPjroERCnejQ==
+
+"@types/node@~16.6.2":
+  version "16.6.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.6.2.tgz#331b7b9f8621c638284787c5559423822fdffc50"
+  integrity sha512-LSw8TZt12ZudbpHc6EkIyDM3nHVWKYrAvGy6EAJfNfjusbwnThqjqxUKKRwuV3iWYeW/LYMzNgaq3MaLffQ2xA==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -3848,7 +3853,7 @@ eslint-plugin-import@~2.23.4:
     resolve "^1.20.0"
     tsconfig-paths "^3.9.0"
 
-eslint-plugin-jest@^24.3.6:
+eslint-plugin-jest@^24.3.6, eslint-plugin-jest@~24.4.0:
   version "24.4.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-24.4.0.tgz#fa4b614dbd46a98b652d830377971f097bda9262"
   integrity sha512-8qnt/hgtZ94E9dA6viqfViKBfkJwFHXgJmTWlMGDgunw1XJEGqm3eiPjDsTanM3/u/3Az82nyQM9GX7PM/QGmg==

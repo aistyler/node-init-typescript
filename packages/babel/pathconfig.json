@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "./.cache",
     "baseUrl": ".",
     "paths": {
       "@/src/*": ["./src/*"],
@@ -10,8 +9,8 @@
   "babel": {
     "root": ".",
     "alias": {
-      "@/src": "./.cache",
-      "@/lib": "./.cache/lib"
+      "@/src": "./src",
+      "@/lib": "./src/lib"
     }
   },
   "jest": {
