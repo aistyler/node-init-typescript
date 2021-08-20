@@ -1,7 +1,6 @@
 // .eslintrc.js
 // off: 0, warn: 1, error: 2
 
-const { eslint: aliases } = require("./pathconfig.json");
 const useReact = false;
 
 //
@@ -18,7 +17,7 @@ const dev_rules = {
 
 //
 // rules for typescript development
-const dev_ts_rules = {
+const dev_rules_ts = {
   "@typescript-eslint/no-unused-vars": [0],
   "@typescript-eslint/no-empty-function": [0],
   "@typescript-eslint/no-use-before-define": [0],
@@ -131,8 +130,8 @@ const configJS = {
   rules: {
     "no-unused-vars": [0, { argsIgnorePattern: "^_" }],
     ..._common_rules,
-    //...(useReact ? common_rules_react : {}),
-    //...(process.env.NODE_ENV === "production" ? {} : dev_rules),
+    ...(useReact ? _common_rules_react : {}),
+    ...(process.env.NODE_ENV === "production" ? {} : dev_rules),
   },
 };
 
@@ -153,8 +152,7 @@ const configTS = {
   rules: {
     "@typescript-eslint/no-unused-vars": configJS.rules["no-unused-vars"],
     ..._common_rules,
-    /*
-    ...(useReact ? common_rules_react : {}),
+    ...(useReact ? _common_rules_react : {}),
     "@typescript-eslint/triple-slash-reference": [0],
     "@typescript-eslint/quotes": [0, "double", { avoidEscape: true, allowTemplateLiterals: true }],
     "@typescript-eslint/explicit-function-return-type": [0],
@@ -163,20 +161,23 @@ const configTS = {
     "@typescript-eslint/no-use-before-define": [1],
     "@typescript-eslint/no-empty-function": [1],
     "@typescript-eslint/ban-ts-comment": [1],
-    ...(process.env.NODE_ENV === "production" ? {} : dev_ts_rules),
-    */
+    ...(process.env.NODE_ENV === "production" ? {} : dev_rules_ts),
   },
 };
 
 module.exports = {
   root: true, // do not use parent's props
+  // javascript
   ...configJS,
+  // typescript
   overrides: [configTS],
   settings: {
     // path aliases
     "import/resolver": {
       // use `eslint-import-resolver-`babel-module for babel-plugin-module-resolver
-      "babel-module": {},
+      "babel-module": {
+        extensions: [".js", ".jsx", ".ts", ".tsx", ".es", ".es6", ".mjs"],
+      },
     },
   },
 };
