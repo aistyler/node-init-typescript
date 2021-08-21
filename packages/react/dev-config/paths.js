@@ -5,10 +5,10 @@ const getPublicUrlOrPath = require("react-dev-utils/getPublicUrlOrPath");
 const appDir = fs.realpathSync(process.cwd());
 const resolvePath = (relativePath) => path.resolve(appDir, relativePath);
 
-const publicUrlOrPath = (isDev) =>
-  getPublicUrlOrPath(isDev, require(resolvePath("package.json")).homepage, process.env.PUBLIC_URL);
+const publicUrlOrPath = getPublicUrlOrPath(process.env.NODE_ENV === "development", require(resolvePath("package.json")).homepage, process.env.PUBLIC_URL);
 
-module.exports = (isDev = false) => ({
+module.exports = {
+  dotenv: resolvePath(".env"),
   appDir,
   appPath: resolvePath("."),
   appSrcDir: resolvePath("src"),
@@ -16,5 +16,5 @@ module.exports = (isDev = false) => ({
   appIndex: resolvePath("src/index"),
   publicDir: resolvePath("public"),
   publicIndex: resolvePath("public/index.html"),
-  publicUrlOrPath: publicUrlOrPath(isDev),
-});
+  publicUrlOrPath,
+};

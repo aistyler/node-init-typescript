@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin");
 
+const getClientEnvironment = require("./env");
 const paths = require("./paths");
 const devServerConfig = require("./webpackDevServer.config");
 
@@ -9,11 +10,8 @@ function genConfig(webpackEnv) {
   const isDev = webpackEnv === "development";
   const isProd = webpackEnv === "production";
 
-  const { appDir, appIndex, appBuildDir, appSrcDir, publicIndex, publicUrlOrPath } = paths(isDev);
-
-  const env = {
-    PUBLIC_URL: publicUrlOrPath,
-  };
+  const { appDir, appIndex, appBuildDir, appSrcDir, publicIndex, publicUrlOrPath } = paths;
+  const env = getClientEnvironment(paths.publicUrlOrPath.slice(0, -1));
 
   return {
     mode: process.env.NODE_ENV || "development",
@@ -78,7 +76,7 @@ function genConfig(webpackEnv) {
       // <link rel="icon" href="%PUBLIC_URL%/favicon.ico">
       // It will be an empty string unless you specify "homepage"
       // in `package.json`, in which case it will be the pathname of that URL.
-      new InterpolateHtmlPlugin(HtmlWebpackPlugin, env),
+      new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),
     ],
     //
     // dev-server
