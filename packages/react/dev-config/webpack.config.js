@@ -5,6 +5,7 @@ const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin");
 const getClientEnvironment = require("./env");
 const paths = require("./paths");
 const devServerConfig = require("./webpackDevServer.config");
+const { webpack: aliases } = require("../pathconfig.json");
 
 function genConfig(webpackEnv) {
   const isDev = webpackEnv === "development";
@@ -23,6 +24,11 @@ function genConfig(webpackEnv) {
     resolve: {
       extensions: [".tsx", ".ts", ".jsx", ".js"],
       modules: ["node_modules", path.resolve(appDir, "node_modules")],
+      roots: [path.resolve(__dirname, "../")],
+      alias: Object.keys(aliases).reduce((acc, key) => {
+        acc[key] = path.resolve(__dirname, aliases[key]);
+        return acc;
+      }, {}),
     },
     module: {
       rules: [

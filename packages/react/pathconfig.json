@@ -1,24 +1,28 @@
 {
   "compilerOptions": {
-    "outDir": "./.cache",
     "baseUrl": ".",
     "paths": {
       "@/src/*": ["./src/*"],
-      "@/lib/*": ["./src/lib/*"]
+      "@/lib/*": ["./src/lib/*"],
+      "@/components/*": ["./src/components/*"]
     }
   },
   "babel": {
     "root": ".",
     "alias": {
-      "@/src": "./.cache",
-      "@/lib": "./.cache/lib"
+      "@/src": "./src",
+      "@/lib": "./src/lib",
+      "@/components": "./src/components"
     }
   },
   "jest": {
     "^@/src/(.*)$": "<rootDir>/src/$1",
-    "^@/lib/(.*)$": "<rootDir>/src/lib/$1"
+    "^@/lib/(.*)$": "<rootDir>/src/lib/$1",
+    "^@/components/(.*)$": "<rootDir>/src/components/$1"
   },
-  "webpack": {
-    
+  "webpack": {  
+    "@/src": "/src",
+    "@/libs": "/src/libs",
+    "@/components": "/src/components"
   }
 }

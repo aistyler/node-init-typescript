@@ -1,14 +1,16 @@
 import React from "react";
-import "./App.css";
+import "./app.css";
+
+import { Header } from "@/components/Header";
 
 interface Props {}
 
 const App: React.FC<Props> = () => {
   return (
     <div className="App">
-      <header className="App-header">
+      <Header className="App-header">
         <p>Header</p>
-      </header>
+      </Header>
 
       <main>
         <form>
