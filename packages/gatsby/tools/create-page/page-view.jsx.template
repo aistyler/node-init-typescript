@@ -1,0 +1,18 @@
+import React from "react";
+import { Link } from "gatsby";
+
+import Layout from "@/components/Layout/Layout";
+
+/**
+ * React View
+ * @param {{location: Location, data?: any, error?: any, loading?: boolean}} param0 
+ * @returns React.Component
+ */
+export default ({ location, data, error, loading }) => (
+  <Layout location={location} title="<%= title%>">
+    <p>Empty Page</p>
+    {loading && <p>Loading...</p>}
+    {data && <p>JSON.stringify(data)</p>}
+    {error && <p>JSON.stringigy(error)</p>}
+  </Layout>
+);

@@ -1,0 +1,19 @@
+@import '@/styles/variables';
+
+header.page-header {
+  background: green;
+}
+
+.header-container {
+  margin: 0 auto;
+  padding: 0.45rem 1.0875rem;
+}
+
+.header-container h1 {
+  margin: 0;
+}
+
+.header-container a {
+  color: white;
+  text-decoration: none;
+}

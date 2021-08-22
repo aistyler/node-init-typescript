@@ -1,0 +1,15 @@
+import React from "react";
+import { PageProps } from "gatsby";
+
+import Layout from "@/components/Layout/Layout";
+
+interface Props extends PageProps {}
+
+const Page: React.FC<Props> = ({ location }) => {
+  return (
+    <Layout location={location} title="<%= title%>">
+    </Layout>
+  );
+};
+
+export default Page;

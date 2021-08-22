@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "@/*": ["./src/*"] }
+  },
+  "babel": {
+    "root": ".",
+    "alias": {
+      "@/": "./src",
+      "@/libs": "./src/libs",
+      "@/components": "./src/components",
+      "@/component-views": "./src/components/views",
+      "@/page-views": "./src/page-views",
+      "@/pages": "./src/pages",
+      "@/styles": "./src/styles",
+      "@/site-config": "./src/site-config"
+    }
+  },
+  "jest": {
+    "^@/(.*)$": "<rootDir>/src/$1"
+  },
+  "webpack": {  
+    "@/": "/src",
+    "@/libs": "/src/libs",
+    "@/components": "/src/components",
+    "@/component-views": "/src/components/views",
+    "@/page-views": "/src/page-views",
+    "@/pages": "/src/pages",
+    "@/styles": "/src/styles",
+    "@/site-config": "/src/site-config"
+  }
+}

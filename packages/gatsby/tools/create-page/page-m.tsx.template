@@ -1,0 +1,34 @@
+import React from "react";
+import { PageProps, useStaticQuery, graphql } from "gatsby";
+import { gql, useQuery } from "@apollo/client";
+
+import View from "@/views/<%= name%>";
+
+interface Props extends PageProps {}
+
+const Page: React.FC<Props> = ({ location }) => {
+  const data = useStaticQuery<Gql.<%= pageName%>StaticQuery>(staticQuery);
+  const { loading, error, data: data2 } = useQuery<Gql.<%= pageName%>DataQuery>(dataQuery);
+
+  return <View location={location} data={data2} error={error} loading={loading} />;
+};
+
+export default Page;
+
+const dataQuery = gql`
+  query <%= pageName%>Data {
+    boards {
+      id
+    }
+  }
+`;
+
+const staticQuery = graphql`
+  query <%= pageName%>Static {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;

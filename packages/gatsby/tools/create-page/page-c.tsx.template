@@ -1,0 +1,12 @@
+import React from "react";
+import { PageProps } from "gatsby";
+
+import View from "@/views/<%= name%>";
+
+interface Props extends PageProps {}
+
+const Page: React.FC<Props> = ({ location }) => {
+  return <View location={location} />;
+};
+
+export default Page;
