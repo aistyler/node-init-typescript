@@ -5,7 +5,7 @@ import { LocaleList } from "@/components";
 
 import * as s from "./footer.module.scss";
 
-export default ({ location, siteMetadata }) => {
+export default ({ location, siteMetadata, pure = false }) => {
   return (
     <div className="container-fluid px-0">
       <div className="row">
@@ -18,9 +18,11 @@ export default ({ location, siteMetadata }) => {
                 Based on <a href="https://github.com/aistyler">AIStyler</a>.
               </h4>
             </div>
-            <div className={`${s.localeListContainer}`}>
-              <LocaleList location={location} />
-            </div>
+            {!pure &&
+              <div className={`${s.localeListContainer}`}>
+                <LocaleList location={location} />
+              </div>
+            }
           </footer>
         </div>
       </div>

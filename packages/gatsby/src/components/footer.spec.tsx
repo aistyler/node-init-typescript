@@ -7,8 +7,8 @@ describe("Footer", () => {
   it(`renders empty site Metadata`, () => {
     const location = {} as Location;
     const siteMetadata = {};
-
-    render(<Footer location={location} siteMetadata={siteMetadata} />);
+    // pure for testing
+    render(<Footer location={location} siteMetadata={siteMetadata} pure={true}/>);
 
     const ele = screen.getByText("AIStyler");
     expect(ele).toBeInTheDocument();
