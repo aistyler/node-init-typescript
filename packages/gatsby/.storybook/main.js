@@ -31,22 +31,53 @@ module.exports = {
         staticQueryDir: "page-data/sq/d",
       }]
     );
+    
+    // .scss loader
+    const scssRule = {
+      test: /\.s(a|c)ss$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: false,
+            importLoaders: 2,
+          }
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true
+          }
+        }
+      ]
+    };
+    // .module.scss loader
+    const scssModuleRule = {
+      test: /\.module\.s(a|c)ss$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: false,
+            importLoaders: 2,
+          }
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true
+          }
+        }
+      ]
+    }
     // scss loader
     config.module.rules = [
       ...config.module.rules,
       {
-        test: /\.s(a|c)ss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
-      },
+        oneOf: [scssRule, scssModuleRule],
+      }
     ];
     config.resolve.extensions = [
       ...config.resolve.extensions,
