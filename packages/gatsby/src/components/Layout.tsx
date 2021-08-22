@@ -11,7 +11,7 @@ interface Props {
 const Layout: React.FC<Props> = ({ pageTitle, siteMetadata, location, children }) => {
   return (
     <>
-      <View pageTitle={pageTitle} siteMetadata={siteMetadata} location={location} >
+      <View pageTitle={pageTitle} siteMetadata={siteMetadata} location={location}>
         {children}
       </View>
     </>

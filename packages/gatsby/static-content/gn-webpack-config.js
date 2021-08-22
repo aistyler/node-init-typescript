@@ -16,15 +16,14 @@ const customPathAlias = {
       acc[key] = path.resolve(__dirname, aliases[key]);
       return acc;
     }, {}),
-  }
-}
+  },
+};
 
 module.exports = ({ actions }) =>
   actions.setWebpackConfig({
     resolve: {
       ...customPathAlias.resolve,
     },
-  }
-);
+  });
 
 module.exports.customPathAlias = customPathAlias;

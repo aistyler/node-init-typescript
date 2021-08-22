@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 interface Props {
-  siteMetadata?: SiteMetadata,
+  siteMetadata?: SiteMetadata;
   pageTitle?: string;
 }
 

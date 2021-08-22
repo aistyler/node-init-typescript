@@ -4,6 +4,7 @@
 
 - gatsby
 - graphql
+- i18n
 - storybook
 - typescript and javascript
 - jest

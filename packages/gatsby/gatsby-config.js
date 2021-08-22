@@ -8,7 +8,7 @@ const plugins_common = require("./static-content/gc-plugins-common");
 const plugins_theme = require("./static-content/gc-plugins-theme");
 
 const flags = {
-  DEV_SSR: false,  
+  DEV_SSR: false,
 };
 
 module.exports = {

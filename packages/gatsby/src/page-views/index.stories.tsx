@@ -21,7 +21,7 @@ IndexDefault.args = {
     description: "Page Description",
   },
   //@ts-ignore
-  t: (key: string) => (key),
+  t: (key: string) => key,
   tReady: true,
 };
 

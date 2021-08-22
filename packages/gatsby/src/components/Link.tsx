@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import { Link as GatsbyLink, GatsbyLinkProps } from "gatsby";
-import { navigate } from '@reach/router';
+import { navigate } from "@reach/router";
 
 import { LocalizedLink, LocalizedLinkProps as LLinkProps } from "gatsby-theme-my-i18n";
 
@@ -25,24 +25,40 @@ const HashLink: React.FC<HashLinkProps> = ({ to, children, ...rest }) => {
     // console.log(">>>>> HASHLINK:", e.currentTarget.hash);
     navigate(e.currentTarget.hash);
   };
-  return <a href={to} onClick={onClick} {...rest}>{children}</a>;
-}
+  return (
+    <a href={to} onClick={onClick} {...rest}>
+      {children}
+    </a>
+  );
+};
 
 const isHash = (to: string): boolean => {
-  return (!!to && to[0] === "#");
-}
+  return !!to && to[0] === "#";
+};
 
 const Link: React.FC<LocalizedLinkProps | NormalLinkProps> = (args) => {
   const { localized = USE_LOCALIZED_LINK, children, to, ...rest } = args;
 
   if (isHash(to)) {
-    return <HashLink to={to} {...rest}>{children}</HashLink>;
+    return (
+      <HashLink to={to} {...rest}>
+        {children}
+      </HashLink>
+    );
   }
   if (localized) {
-    return <LocalizedLink to={to} {...rest}>{children}</LocalizedLink>;
+    return (
+      <LocalizedLink to={to} {...rest}>
+        {children}
+      </LocalizedLink>
+    );
   }
-  //@ts-ignore
-  return <GatsbyLink to={to} {...rest}>{children}</GatsbyLink>;
+  // gatsby link
+  return (
+    <GatsbyLink to={to} {...rest}>
+      {children}
+    </GatsbyLink>
+  );
 };
 
 export { Link };

@@ -21,8 +21,8 @@ const siteConfig = {
 
 // site metadata for gatsby
 const siteMetadata = {
-  title: "GQL Pages",
-  siteUrl: "http://localhost:8000",
+  title: "NodeInit Gatsby",
+  url: "http://localhost:8000",
   pathPrefix: "",
   author: `@peterhs.kang`,
   twitter: `peterhskang`,
