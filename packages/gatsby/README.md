@@ -3,14 +3,15 @@
 ## Keywords
 
 - gatsby
-- graphql
-- i18n
+- graphql/apollo
+- i18n/i18next/react-i18next
 - storybook
 - typescript and javascript
 - jest
 - babel
 - eslint
 - path aliases
+- bootstrap
 
 ## Usage
 

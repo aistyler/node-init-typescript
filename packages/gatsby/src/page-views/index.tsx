@@ -3,7 +3,7 @@ import { ApolloError } from "@apollo/client";
 import { Row, Col, Container, ListGroup } from "react-bootstrap";
 import { withTranslation, WithTranslation } from "react-i18next";
 
-import { Layout, Link } from "@/components";
+import { Layout, Link, AuthButton } from "@/components";
 import { siteMetadata } from "@/site-config/site-config";
 
 interface Props extends WithTranslation {
@@ -23,7 +23,7 @@ const View: React.FC<Props> = ({ loading, error, data, location, user, t, tReady
             <Link to="/profile">{t("page-index:profile")}</Link>
           </Col>
           <Col>
-            <Link to="/posts/1/">{t("page-index:posts")}</Link>
+            <AuthButton user={user} t={t} />
           </Col>
         </Row>
 

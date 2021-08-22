@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
-import { withTranslation } from "react-i18next";
 
 const View = ({
   identifier,
@@ -13,22 +12,22 @@ const View = ({
   t,
 }) => (
   <>
-    {loading && <p>Loading...</p>}
-    {error && <p> {error} </p>}
     <label>
       {t("login.email")}:
-      <input value={identifier} onChange={onChangeIdentifier} type="input" />
+      <input value={identifier} onChange={onChangeIdentifier} type="input" disabled={loading} />
     </label>
     <br />
     <label>
       {t("login.password")}:
-      <input value={password} onChange={onChangePassword} type="password" />
+      <input value={password} onChange={onChangePassword} type="password" disabled={loading} />
     </label>
     <br />
-    <button type="button" onClick={onSubmit}>
+    <button type="button" onClick={onSubmit}  disabled={loading}>
       {t("login.submit")}
     </button>
+    {loading && <p>Loading...</p>}
+    {error && <p> {error} </p>}
   </>
 );
 
-export default withTranslation("common")(View);
+export default View;

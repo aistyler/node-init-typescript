@@ -22,7 +22,7 @@ const siteConfig = {
 // site metadata for gatsby
 const siteMetadata = {
   title: "NodeInit Gatsby",
-  url: "http://localhost:8000",
+  siteUrl: "http://localhost:8000",
   pathPrefix: "",
   author: `@peterhs.kang`,
   twitter: `peterhskang`,

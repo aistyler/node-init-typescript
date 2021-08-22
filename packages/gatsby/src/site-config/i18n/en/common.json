@@ -24,5 +24,7 @@
   
   "login.email": "Email",
   "login.password": "Password",
-  "login.submit": "Login"
+  "login.submit": "Login",
+  "auth-button.login": "Login",
+  "auth-button.logout": "Logout"
 }

@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { PageProps } from "gatsby";
 
-import { Layout, Login } from "@/components";
+import View from "@/page-views/login";
+
 import { AuthContext } from "@/libs/auth/context";
 import { LocaleContext, useLocalization, localizedPath } from "gatsby-theme-my-i18n";
-
-import { siteMetadata } from "@/site-config/site-config";
 
 interface Props extends PageProps {}
 
@@ -23,9 +22,12 @@ const Page: React.FC<Props> = ({ location }) => {
   console.log(">>>>>>>>>", path, locale);
 
   return (
-    <Layout siteMetadata={siteMetadata} location={location} pageTitle="Login">
-      <Login isAuthenticated={isAuthenticated} login={login} redirectPath={path} isPopup={false} />
-    </Layout>
+    <View
+      redirectPath={path}
+      isAuthenticated={isAuthenticated}
+      loginFunc={login}
+      location={location}
+    />
   );
 };
 

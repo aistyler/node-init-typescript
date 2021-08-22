@@ -23,5 +23,7 @@
 
   "login.email": "이메일",
   "login.password": "패스워드",
-  "login.submit": "로그인"
+  "login.submit": "로그인",
+  "auth-button.login": "로그인",
+  "auth-button.logout": "로그아웃"
 }

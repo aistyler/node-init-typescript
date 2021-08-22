@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { navigate } from "gatsby";
+import { WithT } from "i18next";
 
 import View from "@/component-views/Login";
 
-interface Props {
+interface Props extends WithT {
   isAuthenticated: () => boolean;
   login: (identifier: string, password: string) => any;
   redirectPath: string;
   isPopup?: boolean;
 }
 
-const Login: React.FC<Props> = ({ isAuthenticated, login, redirectPath, isPopup = false }) => {
+const Login: React.FC<Props> = ({ isAuthenticated, login, redirectPath, isPopup = false, t }) => {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [loginState, setLoginState] = useState({ loading: false, error: "" });
@@ -28,6 +29,7 @@ const Login: React.FC<Props> = ({ isAuthenticated, login, redirectPath, isPopup 
       onSubmit={onSubmit}
       loading={loginState.loading}
       error={loginState.error}
+      t={t}
     />
   );
 
