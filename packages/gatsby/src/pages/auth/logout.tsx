@@ -24,7 +24,6 @@ const Page: React.FC<Props> = ({ location }) => {
     locale,
     path: "/",
   });
-  console.log(">>>>>>>>>", path, locale);
   // eslint-disable-next-line no-unused-expressions
   isBrowser() && navigate(path, { replace: true });
 

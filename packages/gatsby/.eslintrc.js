@@ -55,7 +55,15 @@ const _common_rules = {
   "no-plusplus": [0],
   "no-unused-expressions": [2, { allowShortCircuit: true }],
   "linebreak-style": [2, "unix"],
-  "max-len": [1, { code: prettierConfig.printWidth, ignoreUrls: true }],
+  "max-len": [
+    1,
+    {
+      code: prettierConfig.printWidth,
+      ignoreUrls: true,
+      ignoreComments: true,
+      ignoreTemplateLiterals: true,
+    },
+  ],
   "quotes": [0, "double", { avoidEscape: true, allowTemplateLiterals: true }],
   "quote-props": [1, "consistent-as-needed"],
   "prettier/prettier": [1, prettierConfig, { usePrettierrc: false }],

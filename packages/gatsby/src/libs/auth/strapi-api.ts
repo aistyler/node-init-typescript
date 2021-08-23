@@ -58,7 +58,7 @@ class StrapiApi implements IAuth<Gql.UsersPermissionsMe, AxiosResponse> {
         decodedToken: { user: authBody.user, claims: authBody.jwt },
         access_token: authBody.jwt,
         id_token: authBody.jwt,
-        expires_in: authBody.expires_in || 60, // 60 seconds
+        expires_in: authBody.expiresIn || 60, // 60 seconds
       };
       this.cache.set(data as CacheEntry);
       this._setAuth(data as CacheEntry);

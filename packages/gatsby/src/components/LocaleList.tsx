@@ -19,8 +19,6 @@ const LocaleList: React.FC<Props> = ({ location }) => {
   const { config, defaultLang, prefixDefault, localizedPath } = useLocalization();
   const urlLangCode = getLangCodeFromUrl(config, location);
 
-  //console.log(">>>>>>>>>>>>>> LocaleList:", locale, urlLangCode);
-
   function onChange(e: React.ChangeEvent<HTMLSelectElement>): void {
     if (e.target.value === locale) return;
     // refresh the current page
@@ -31,7 +29,6 @@ const LocaleList: React.FC<Props> = ({ location }) => {
       locale: e.target.value,
       path: purePath,
     });
-    //console.log(">>>>>>>>>>>>>> localizedPath:", path, purePath);
 
     // N.B.
     // reload the current page with the selected locale

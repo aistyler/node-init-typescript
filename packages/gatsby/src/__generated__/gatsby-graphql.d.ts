@@ -5195,6 +5195,7 @@ type UsersPermissionsLoginInput = {
 type UsersPermissionsLoginPayload = {
   __typename?: 'UsersPermissionsLoginPayload';
   jwt?: Maybe<Scalars['String']>;
+  expiresIn?: Maybe<Scalars['Int']>;
   user: UsersPermissionsMe;
 };
 

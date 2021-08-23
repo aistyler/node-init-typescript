@@ -19,7 +19,6 @@ const Page: React.FC<Props> = ({ location }) => {
     locale,
     path: "/",
   });
-  console.log(">>>>>>>>>", path, locale);
 
   return (
     <View

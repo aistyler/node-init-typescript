@@ -14,7 +14,7 @@ const i18nextOptions = {
   interpolation: {
     escapeValue: false,
   },
-  debug: true,
+  debug: false,
   missingKeyHandler: (lng, ns, key, fallbackValue) =>
     // eslint-disable-next-line no-console
     console.log(`*** Missing Key: ${lng}:${ns}.${key} => ${fallbackValue}`),

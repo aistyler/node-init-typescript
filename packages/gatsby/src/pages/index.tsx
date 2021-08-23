@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { graphql, PageProps } from "gatsby";
-//import { gql, useQuery } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 
 import { AuthContext } from "@/libs/auth/context";
 import View from "@/page-views/index";
@@ -8,7 +8,7 @@ import View from "@/page-views/index";
 interface Props extends PageProps<Gql.IndexPageQuery> {}
 
 const Index: React.FC<Props> = ({ data, location }) => {
-  const { loading, error, data: data2 } = {error: { message: "removed" }}; //useQuery<Gql.GetHomepageQuery>(dataQuery);
+  const { loading, error, data: data2 } = useQuery<Gql.GetHomepageQuery>(dataQuery);
   const { landingPage } = data2 || {};
   const { user } = useContext(AuthContext);
 
@@ -24,8 +24,8 @@ const Index: React.FC<Props> = ({ data, location }) => {
 };
 
 export default Index;
-/*
-export const dataQuery = gql`
+
+const dataQuery = gql`
   query GetHomepage {
     landingPage {
       title
@@ -34,7 +34,7 @@ export const dataQuery = gql`
     }
   }
 `;
-*/
+
 export const staticQuery = graphql`
   query IndexPage {
     site {
