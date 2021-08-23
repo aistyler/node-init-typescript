@@ -7,58 +7,41 @@ import { LocalizedLink } from "gatsby-theme-my-i18n";
 
 const USE_LOCALIZED_LINK = !!process.env.GATSBY_LOCALES;
 
-interface NormalLinkProps extends GatsbyLinkProps<unknown> {
-  localized?: false;
-}
-
-interface LocalizedLinkProps extends GatsbyLinkProps<unknown> {
-  localized?: true;
+interface NormalLinkProps extends Omit<GatsbyLinkProps<unknown>, "ref"> {
+  localized?: boolean;
+  to: string;
+  language?: string;
 }
 
 interface HashLinkProps {
   to: string;
 }
 
-const HashLink: React.FC<HashLinkProps> = ({ to, children, ...rest }) => {
+const HashLink: React.FC<HashLinkProps> = ({ to, ...rest }) => {
   const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     // console.log(">>>>> HASHLINK:", e.currentTarget.hash);
     navigate(e.currentTarget.hash);
   };
-  return (
-    <a href={to} onClick={onClick} {...rest}>
-      {children}
-    </a>
-  );
+  // eslint-disable-next-line jsx-a11y/anchor-has-content
+  return <a href={to} onClick={onClick} {...rest} />;
 };
 
 const isHash = (to: string): boolean => {
   return !!to && to[0] === "#";
 };
 
-const Link: React.FC<LocalizedLinkProps | NormalLinkProps> = (args) => {
-  const { localized = USE_LOCALIZED_LINK, children, to, ...rest } = args;
-
+const Link: React.FC<NormalLinkProps> = (args) => {
+  const { localized = USE_LOCALIZED_LINK, language, ...rest } = args;
+  const { to } = rest;
   if (isHash(to)) {
-    return (
-      <HashLink to={to} {...rest}>
-        {children}
-      </HashLink>
-    );
+    return <HashLink {...rest} />;
   }
   if (localized) {
-    return (
-      <LocalizedLink to={to} {...rest}>
-        {children}
-      </LocalizedLink>
-    );
+    return <LocalizedLink language={language} {...rest} />;
   }
   // gatsby link
-  return (
-    <GatsbyLink to={to} {...rest}>
-      {children}
-    </GatsbyLink>
-  );
+  return <GatsbyLink {...rest} />;
 };
 
 export { Link };
