@@ -3,9 +3,9 @@
 
 const { siteConfig, siteMetadata } = require("./src/site-config/site-config");
 
-const plugins_static_pages = require("./static-content/gc-plugins-static-pages");
-const plugins_common = require("./static-content/gc-plugins-common");
-const plugins_theme = require("./static-content/gc-plugins-theme");
+const plugins_static_pages = require("./config/gc-plugins-static-pages");
+const plugins_common = require("./config/gc-plugins-common");
+const plugins_theme = require("./config/gc-plugins-theme");
 
 const flags = {
   DEV_SSR: false,

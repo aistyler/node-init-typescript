@@ -40,7 +40,7 @@ const createPages = async ({ graphql, actions, reporter }) => {
   const { nodes } = data.data.allFile; //.filter(({ node }) => /^posts\//.test(node.relativePath));
 
   const pageTemplate = {
-    profile: path.resolve("static-content/page-templates/profile/profile-mdx.tsx"),
+    profile: path.resolve("src/pages/profile/template-profile-mdx.tsx"),
   };
 
   nodes.forEach(({ childMdx: node, relativePath }, index) => {

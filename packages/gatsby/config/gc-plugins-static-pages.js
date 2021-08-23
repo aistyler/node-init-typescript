@@ -5,24 +5,22 @@ module.exports = [
     resolve: `gatsby-plugin-page-creator`,
     options: {
       path: `${__dirname}/../src/pages`,
-      ignore: [
-        // ignore story files
-        `*.stories.(js|ts)?(x)`,
-      ],
+      ignore: {
+        // default value: template-*, __tests__/*, *.test.jsx?, *.spec.jsx?, *.d.tsx?,
+        // *.json, *.yaml, _*, .*
+        patterns: [
+          // story files
+          `**/*.stories.(jsx|tsx)`,
+        ],
+      },
     },
   },
-  {
-    resolve: `gatsby-source-filesystem`,
-    options: {
-      name: `pages`,
-      path: `${__dirname}/../src/pages`,
-    },
-  },
+  // static pages
   {
     resolve: "gatsby-source-filesystem",
     options: {
       name: "profile", // node.sourceInstanceName
-      path: `${__dirname}/page-data/profile`,
+      path: `${__dirname}/../static-content/page-data/profile`,
     },
   },
   // Images to be optimised
@@ -30,7 +28,7 @@ module.exports = [
     resolve: `gatsby-source-filesystem`,
     options: {
       name: `images`,
-      path: `${__dirname}/images`,
+      path: `${__dirname}/../static-content/images`,
     },
   },
   // mdx

@@ -1,4 +1,4 @@
-const { customPathAlias } = require("../static-content/gn-webpack-config");
+const { customPathAlias } = require("../config/gn-webpack-config");
 
 const stories = {
   "views": [
