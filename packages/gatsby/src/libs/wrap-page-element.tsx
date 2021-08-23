@@ -10,9 +10,7 @@ interface Props {
 
 const wrapPageElement: React.FC<Props> = ({ element, props: { pageContext, location } }) => (
   <ThemeProvider pageContext={pageContext} location={location}>
-    <I18NProvider pageContext={pageContext}>
-      {element}
-    </I18NProvider>
+    <I18NProvider pageContext={pageContext}>{element}</I18NProvider>
   </ThemeProvider>
 );
 

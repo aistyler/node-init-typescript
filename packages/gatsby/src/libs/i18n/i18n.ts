@@ -7,6 +7,9 @@ import { i18nextOptions, enabledLocales } from "@/src/i18n/i18next-config";
 
 const useStaticLoading = true;
 
+//
+// language resources
+//
 const resources: Resource = !useStaticLoading
   ? {}
   : enabledLocales.reduce((acc, locale) => {
@@ -19,18 +22,20 @@ const resources: Resource = !useStaticLoading
       return acc;
     }, {} as Resource);
 
+//
+// init i18n
+//
 i18next.use(initReactI18next).init({
   resources,
   ...i18nextOptions,
 });
 
-const changeLanguage = (locale: string): void => {
-  if (i18next.language !== locale) i18next.changeLanguage(locale);
-};
-
-const loadLanguages = async (locale: string): Promise<void> => {
-  if (resources[locale]) return changeLanguage(locale);
-
+const loadLanguage = async (locale: string): Promise<void> => {
+  if (resources[locale]) {
+    i18next.language !== locale && i18next.changeLanguage(locale);
+    return;
+  }
+  // load language
   resources[locale] = {};
   i18nextOptions.ns.forEach((ns) => {
     // eslint-disable-next-line import/no-dynamic-require,global-require
@@ -40,4 +45,4 @@ const loadLanguages = async (locale: string): Promise<void> => {
   await i18next.loadLanguages(locale);
 };
 
-export { changeLanguage, loadLanguages, i18next };
+export { loadLanguage, i18next };
