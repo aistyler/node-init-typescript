@@ -1,20 +1,20 @@
 {
-  "name": "node-init-typescript-gatsby",
+  "name": "my-components",
   "private": true,
   "version": "1.0.0",
+  "main": "./dist/index.js",
   "scripts": {
     "build": "NODE_ENV=production gatsby build --no-uglify",
     "build:prod": "NODE_ENV=production gatsby build",
     "dev": "gatsby develop --port 8000",
-    "dev:dist": "DISTRIBUTION gatsby develop",
+    "dist": "yarn dist:clean && babel --out-dir ./dist ./src -x .js,.jsx,.ts,.tsx --env-name production && ls -al ./dist",
+    "dist:clean": "rm -rf ./dist",
     "clean": "gatsby clean",
     "serve": "gatsby serve --port 9000",
     "test": "jest -c ./tests/jest.config.js",
     "type-check": "tsc",
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
-    "codegen:update-schema": "node tools/graphql/fetch-graphql-schema.js all",
-    "codegen": "graphql-codegen --config .codegen.yml",
     "storybook": "start-storybook --port 6006 --static-dir public",
     "sb:views": "NODE_ENV=test SB_STORIES=views yarn storybook",
     "sb:all": "NODE_ENV=test SB_STORIES=all yarn storybook",
@@ -35,8 +35,6 @@
     "i18next": "~20.4.0",
     "joi": "~17.4.2",
     "lodash": "~4.17.21",
-    "micromatch": "~4.0.4",
-    "my-components": "*",
     "react": "~17.0.2",
     "react-bootstrap": "~1.6.1",
     "react-dom": "~17.0.2",
@@ -44,21 +42,13 @@
     "react-i18next": "~11.11.4"
   },
   "devDependencies": {
+    "@babel/cli": "~7.14.5",
     "@babel/core": "~7.14.5",
     "@babel/plugin-proposal-decorators": "~7.14.2",
     "@babel/preset-env": "~7.14.2",
     "@babel/preset-react": "~7.14.0",
     "@babel/preset-typescript": "~7.14.0",
     "@babel/runtime": "~7.14.5",
-    "@graphql-codegen/add": "~2.0.2",
-    "@graphql-codegen/cli": "~1.21.0",
-    "@graphql-codegen/introspection": "~1.18.0",
-    "@graphql-codegen/typescript": "~1.23.0",
-    "@graphql-codegen/typescript-document-nodes": "~1.17.0",
-    "@graphql-codegen/typescript-graphql-files-modules": "~1.18.0",
-    "@graphql-codegen/typescript-operations": "~1.18.0",
-    "@graphql-codegen/typescript-react-apollo": "~2.3.0",
-    "@graphql-codegen/typescript-resolvers": "~1.20.0",
     "@mdx-js/react": "~1.6.22",
     "@storybook/addon-actions": "~6.3.5",
     "@storybook/addon-docs": "~6.3.5",
@@ -123,15 +113,11 @@
     "gatsby-source-filesystem": "~3.10.0",
     "gatsby-transformer-remark": "~4.7.0",
     "gatsby-transformer-sharp": "~3.10.0",
-    "husky": "~7.0.1",
-    "identity-obj-proxy": "^3.0.0",
     "jest": "~27.0.6",
     "jquery": "~3.6.0",
-    "lint-staged": "~11.1.2",
     "moment": "~2.29.1",
     "prettier": "~2.3.2",
     "prismjs": "~1.23.0",
-    "prop-types": "~15.7.2",
     "react-test-renderer": "~17.0.2",
     "sass": "~1.38.0",
     "sass-loader": "~12.1.0",
@@ -143,13 +129,5 @@
     "webpack": "~5.51.0"
   },
   "author": "PK <peterhs.kang@gmail.com>",
-  "license": "BSD",
-  "lint-staged": {
-    "./{src,static-content}/**/*.{ts,js,jsx,tsx}": [
-      "yarn lint:fix"
-    ]
-  },
-  "workspaces": [
-    "packages/**/*"
-  ]
+  "license": "BSD"
 }

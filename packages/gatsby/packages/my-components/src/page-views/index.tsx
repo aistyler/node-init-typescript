@@ -2,47 +2,18 @@ import React from "react";
 import { Row, Col, Container, ListGroup } from "react-bootstrap";
 import { withTranslation, WithTranslation } from "react-i18next";
 
-import { Layout, Link, AuthButton } from "my-components";
+import { Layout, Link, AuthButton } from "@/components";
 import { siteMetadata } from "@/src/site-config";
 
 interface Props extends WithTranslation {
   location: Location;
-  loading?: boolean;
-  error?: {
-    message: string;
-  };
   data?: any;
-  user?: Gql.UsersPermissionsMe;
 }
 
-const View: React.FC<Props> = ({ loading, error, data, location, user, t, tReady }) => {
+const View: React.FC<Props> = ({  data, location, t, tReady }) => {
   return (
     <Layout siteMetadata={siteMetadata} location={location} pageTitle={data ? data.title : ""}>
       <Container className="text-center">
-        <Row>
-          <Col>
-            <Link to="/profile">{t("page-index:profile")}</Link>
-          </Col>
-          <Col>
-            <AuthButton user={user} t={t} />
-          </Col>
-        </Row>
-
-        {loading && (
-          <Row>
-            <Col>
-              <p>{t("pageLoading")}</p>
-            </Col>
-          </Row>
-        )}
-        {error && (
-          <Row>
-            <Col>
-              <p>{t("offlineMode")}</p>
-              <p> Error: {error.message} </p>
-            </Col>
-          </Row>
-        )}
         {data && (
           <Row className="justify-content-center my-3">
             <Col>
