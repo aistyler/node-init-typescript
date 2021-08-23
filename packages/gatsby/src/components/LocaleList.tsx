@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { navigate } from "gatsby";
-import { LocaleContext, useLocalization, localizedPath } from "gatsby-theme-my-i18n";
+import { LocaleContext, useLocalization } from "gatsby-theme-my-i18n";
 
 import View from "@/component-views/LocaleList";
 
@@ -16,7 +16,7 @@ const getLangCodeFromUrl = (langConfig: any[], location: Location): string => {
 
 const LocaleList: React.FC<Props> = ({ location }) => {
   const locale = useContext<string>(LocaleContext);
-  const { config, defaultLang, prefixDefault } = useLocalization();
+  const { config, defaultLang, prefixDefault, localizedPath } = useLocalization();
   const urlLangCode = getLangCodeFromUrl(config, location);
 
   //console.log(">>>>>>>>>>>>>> LocaleList:", locale, urlLangCode);

@@ -2,11 +2,9 @@ import * as React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql, withPrefix } from "gatsby"
 import { useLocalization } from "../hooks/use-localization"
-import { LocaleContext } from "../context";
 
 const SEO = ({ location, pageContext }) => {
-  const locale = React.useContext(LocaleContext)
-  const { config, defaultLang } = useLocalization()
+  const { locale, config, defaultLang } = useLocalization()
   const data = useStaticQuery(graphql`
     query LocalizationSEOQuery {
       site {

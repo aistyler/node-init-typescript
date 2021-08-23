@@ -3,7 +3,7 @@ import React from "react";
 import { Link as GatsbyLink, GatsbyLinkProps } from "gatsby";
 import { navigate } from "@reach/router";
 
-import { LocalizedLink, LocalizedLinkProps as LLinkProps } from "gatsby-theme-my-i18n";
+import { LocalizedLink } from "gatsby-theme-my-i18n";
 
 const USE_LOCALIZED_LINK = !!process.env.GATSBY_LOCALES;
 
@@ -11,7 +11,7 @@ interface NormalLinkProps extends GatsbyLinkProps<unknown> {
   localized?: false;
 }
 
-interface LocalizedLinkProps extends LLinkProps {
+interface LocalizedLinkProps extends GatsbyLinkProps<unknown> {
   localized?: true;
 }
 

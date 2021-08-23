@@ -1,7 +1,10 @@
+import * as React from "react"
+import { LocaleContext } from "../context"
 import { graphql, useStaticQuery } from "gatsby"
 import { localizedPath } from "../helpers"
 
 const useLocalization = () => {
+  const locale = React.useContext(LocaleContext)
   const {
     themeI18N: { defaultLang, prefixDefault, config },
   } = useStaticQuery(graphql`
@@ -19,14 +22,15 @@ const useLocalization = () => {
         }
       }
     }
-  `);
+  `)
 
   return {
+    locale,
     defaultLang,
     prefixDefault,
     config,
     localizedPath,
-  };
-};
+  }
+}
 
-export { useLocalization };
+export { useLocalization }

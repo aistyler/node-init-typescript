@@ -2,8 +2,8 @@
 import React from 'react';
 import { action } from "@storybook/addon-actions"
 import { MockedProvider } from '@apollo/client/testing'; // Use for Apollo Version 3+
-import I18NProvider from '../src/libs/i18n/context';
-import { LocaleProvider } from 'gatsby-theme-my-i18n';
+//import I18NProvider from '../src/libs/i18n/context';
+//import { LocaleProvider } from 'gatsby-theme-my-i18n';
 
 // root scss from src styles
 import "../src/styles/style.scss";

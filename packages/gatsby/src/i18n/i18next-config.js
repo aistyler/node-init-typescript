@@ -8,7 +8,7 @@ const fallbackLng = `en`;
 const i18nextOptions = {
   lng: defaultLangCode,
   defaultNS,
-  ns: [defaultNS, "page-index"],
+  ns: [defaultNS, "page-index", "page-login"],
   fallbackLng,
   initImmediate: false,
   interpolation: {

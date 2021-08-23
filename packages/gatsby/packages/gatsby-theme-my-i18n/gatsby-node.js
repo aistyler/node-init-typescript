@@ -38,6 +38,20 @@ function writeFile(filePath, data, reporter) {
 }
 
 exports.onPreBootstrap = ({ reporter, store }, themeOptions) => {
+  const defaultContent = [
+    {
+      code: `en`,
+      hrefLang: `en-US`,
+      name: `English`,
+      localName: `English`,
+      langDir: `ltr`,
+      dateFormat: `MM/DD/YYYY`,
+    },
+  ]
+  const data = JSON.stringify(defaultContent)
+
+  const { program } = store.getState()
+  const defaultConfigPath = path.join(program.directory, `src/i18n/config.json`)
 
   if (themeOptions.configPath) {
     if (!fs.existsSync(themeOptions.configPath)) {
@@ -49,21 +63,6 @@ exports.onPreBootstrap = ({ reporter, store }, themeOptions) => {
       `[gatsby-theme-i18n]: Config file found at ${themeOptions.configPath}`
     )
   } else {
-    const defaultContent = [
-      {
-        code: `en`,
-        hrefLang: `en-US`,
-        name: `English`,
-        localName: `English`,
-        langDir: `ltr`,
-        dateFormat: `MM/DD/YYYY`,
-      },
-    ]
-    const data = JSON.stringify(defaultContent)
-
-    const { program } = store.getState()
-    const defaultConfigPath = path.join(program.directory, `src/i18n/config.json`)
-
     writeFile(defaultConfigPath, data, reporter)
   }
 }

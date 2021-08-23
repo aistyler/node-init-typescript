@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { PageProps, navigate } from "gatsby";
 
-import { LocaleContext, useLocalization, localizedPath } from "gatsby-theme-my-i18n";
+import { LocaleContext, useLocalization } from "gatsby-theme-my-i18n";
 import { Layout } from "@/components";
 import { AuthContext } from "@/libs/auth/context";
 import { isBrowser } from "@/libs/utils";
@@ -17,7 +17,7 @@ const Page: React.FC<Props> = ({ location }) => {
   // redirect to '/'
   // localized path
   const locale = useContext<string>(LocaleContext);
-  const { defaultLang, prefixDefault } = useLocalization();
+  const { defaultLang, prefixDefault, localizedPath } = useLocalization();
   const path = localizedPath({
     defaultLang,
     prefixDefault,

@@ -1,48 +1,34 @@
 import * as React from "react";
-import { GatsbyLinkProps } from "gatsby";
 
 export const LocaleContext: React.Context<string>;
-//export const LocaleContext: React.Context<string>;
-
-export const LocaleProvider: React.FC<{
+export function LocaleProvider({ children, pageContext: { locale }, }: {
   children: any;
-  location: Location;
   pageContext: {
     locale?: string;
   };
-}>;
-
-export const MdxLink: React.FC<{
+}): JSX.Element;
+export function MdxLink({ href, children, ...props }: {
   [x: string]: any;
   href: any;
   children: any;
-}>;
-
-export interface LocalizedLinkProps extends GatsbyLinkProps<unknown> {
-  language?: string;
-}
-export const LocalizedLink: React.FC<LocalizedLinkProps>;
-
-export const LocalizedRouter: React.FC<{
+}): JSX.Element;
+export function LocalizedLink({ to, language, ...props }: {
+  [x: string]: any;
+  to: any;
+  language: any;
+}): JSX.Element;
+export function LocalizedRouter({ basePath, children, ...props }: {
   [x: string]: any;
   basePath: any;
   children: any;
-}>;
-
-export const LocalesList: React.FC;
-
-export function localizedPath({
-  defaultLang,
-  prefixDefault,
-  locale,
-  path,
-}: {
+}): JSX.Element;
+export function LocalesList(): JSX.Element;
+export function localizedPath({ defaultLang, prefixDefault, locale, path }: {
   defaultLang: any;
   prefixDefault: any;
   locale: any;
   path: any;
-}): string;
-
+}): any;
 export function useLocalization(): {
   locale: string;
   defaultLang: any;
@@ -51,9 +37,3 @@ export function useLocalization(): {
   localizedPath: typeof localizedPath;
 };
 
-export const SEO: React.FC<{
-  location: Location;
-  pageContext: {
-    locale?: string;
-  };
-}>;

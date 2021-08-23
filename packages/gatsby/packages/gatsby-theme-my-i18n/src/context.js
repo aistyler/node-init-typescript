@@ -1,10 +1,6 @@
-import { createContext } from "react";
+import { createContext } from "react"
+import { defaultLang } from "../utils/default-options"
 
-const defaultLocale = "en";
+const LocaleContext =createContext(defaultLang)
 
-const LocaleContext = createContext(defaultLocale);
-LocaleContext.displayName = "LocaleContext";
-
-const LocaleProvider = LocaleContext.Provider;
-
-export { LocaleContext, LocaleProvider };
+export { LocaleContext }
