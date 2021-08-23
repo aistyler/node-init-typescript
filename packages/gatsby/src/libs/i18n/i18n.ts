@@ -7,6 +7,9 @@ import { i18nextOptions, enabledLocales } from "@/src/i18n/i18next-config";
 
 const useStaticLoading = true;
 
+const loadLanguageResource = (locale: string, ns: string) =>
+  require(`@/src/i18n/${locale}/${ns}.json`);
+
 //
 // language resources
 //
@@ -15,9 +18,7 @@ const resources: Resource = !useStaticLoading
   : enabledLocales.reduce((acc, locale) => {
       acc[locale] = {} as ResourceLanguage;
       i18nextOptions.ns.forEach((ns) => {
-        // eslint-disable-next-line import/no-dynamic-require,global-require
-        const data = require(`@/src/i18n/${locale}/${ns}.json`);
-        acc[locale][ns] = data;
+        acc[locale][ns] = loadLanguageResource(locale, ns);
       });
       return acc;
     }, {} as Resource);
@@ -38,9 +39,7 @@ const loadLanguage = async (locale: string): Promise<void> => {
   // load language
   resources[locale] = {};
   i18nextOptions.ns.forEach((ns) => {
-    // eslint-disable-next-line import/no-dynamic-require,global-require
-    const data = require(`@/src/i18n/${locale}/${ns}.json`);
-    resources[locale][ns] = data;
+    resources[locale][ns] = loadLanguageResource(locale, ns);
   });
   await i18next.loadLanguages(locale);
 };
