@@ -8,8 +8,7 @@
       "@/component-views/*": ["./src/components/views/*"],
       "@/page-views/*": ["./src/page-views/*"],
       "@/pages/*": ["./src/pages/*"],
-      "@/styles/*": ["./src/styles/*"],
-      "@/site-config/*": ["./src/site-config/*"]
+      "@/styles/*": ["./src/styles/*"]
     }
   },
   "babel": {
@@ -21,8 +20,7 @@
       "@/component-views": "./src/components/views",
       "@/page-views": "./src/page-views",
       "@/pages": "./src/pages",
-      "@/styles": "./src/styles",
-      "@/site-config": "./src/site-config"
+      "@/styles": "./src/styles"
     }
   },
   "jest": {
@@ -35,7 +33,6 @@
     "@/component-views": "/src/components/views",
     "@/page-views": "/src/page-views",
     "@/pages": "/src/pages",
-    "@/styles": "/src/styles",
-    "@/site-config": "/src/site-config"
+    "@/styles": "/src/styles"
   }
 }

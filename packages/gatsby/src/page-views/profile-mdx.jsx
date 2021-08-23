@@ -5,7 +5,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import { Layout } from "@/components";
-import { siteMetadata } from "@/site-config/site-config";
+import { siteMetadata } from "@/src/site-config";
 
 export default ({ location, profileImageSharp, mdx }) => (
   <Layout siteMetadata={siteMetadata} location={location} title={mdx ? mdx.frontmatter.title : ""}>

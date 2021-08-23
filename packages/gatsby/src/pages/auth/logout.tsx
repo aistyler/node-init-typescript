@@ -5,7 +5,7 @@ import { LocaleContext, useLocalization, localizedPath } from "gatsby-theme-my-i
 import { Layout } from "@/components";
 import { AuthContext } from "@/libs/auth/context";
 import { isBrowser } from "@/libs/utils";
-import { siteMetadata } from "@/site-config/site-config";
+import { siteMetadata } from "@/src/site-config";
 
 interface Props extends PageProps {}
 

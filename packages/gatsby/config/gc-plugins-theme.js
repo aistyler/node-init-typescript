@@ -1,7 +1,7 @@
 // theme plugins for gatsby-config.js
 const {
   siteConfig: { defaultLangCode, enabledLocales, localeConfigPath },
-} = require("../src/site-config/site-config");
+} = require("../src/site-config");
 
 module.exports = [
   `gatsby-plugin-sass`,

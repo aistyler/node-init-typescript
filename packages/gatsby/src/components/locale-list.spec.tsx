@@ -21,7 +21,7 @@ describe("LocaleList", () => {
       },
     }));
   });
-  
+
   it(`renders empty site Metadata`, () => {
     const location = {
       pathname: "/",
@@ -63,5 +63,4 @@ describe("LocaleList", () => {
       }
   );
   */
-
 });
