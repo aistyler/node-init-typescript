@@ -14910,21 +14910,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"gatsby-theme-my-i18n-react-i18next@workspace:packages/gatsby/packages/gatsby-theme-my-i18n-react-i18next":
-  version: 0.0.0-use.local
-  resolution: "gatsby-theme-my-i18n-react-i18next@workspace:packages/gatsby/packages/gatsby-theme-my-i18n-react-i18next"
-  dependencies:
-    i18next: ^20.2.1
-    react-i18next: ^11.8.12
-  peerDependencies:
-    gatsby: ^3.10.0
-    i18next: ^20.4.1
-    react: ^17.0.0
-    react-dom: ^17.0.0
-    react-i18next: ^11.11.0
-  languageName: unknown
-  linkType: soft
-
 "gatsby-theme-my-i18n@workspace:packages/gatsby/packages/gatsby-theme-my-i18n, gatsby-theme-my-i18n@~2.0.0":
   version: 0.0.0-use.local
   resolution: "gatsby-theme-my-i18n@workspace:packages/gatsby/packages/gatsby-theme-my-i18n"
@@ -16582,7 +16567,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"i18next@npm:^20.2.1, i18next@npm:~20.4.0":
+"i18next@npm:~20.4.0":
   version: 20.4.0
   resolution: "i18next@npm:20.4.0"
   dependencies:
@@ -24276,7 +24261,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:^11.8.12, react-i18next@npm:~11.11.4":
+"react-i18next@npm:~11.11.4":
   version: 11.11.4
   resolution: "react-i18next@npm:11.11.4"
   dependencies:

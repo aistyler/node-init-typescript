@@ -16,8 +16,8 @@ const Template: ComponentStory<typeof Layout> = (args: any) => <Layout {...args}
 export const LayoutDefault = Template.bind({});
 LayoutDefault.args = {
   siteMetadata: {
-    title: "My Components",
+    title: "My Layout",
   },
-  pageTitle: "Page Title",
+  pageTitle: "My Page",
   location: window.location,
 };

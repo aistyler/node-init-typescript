@@ -13,5 +13,5 @@ const Template: ComponentStory<typeof Header> = (args: any) => <Header {...args}
 
 export const HeaderDefault = Template.bind({});
 HeaderDefault.args = {
-  siteTitle: "example title",
+  siteTitle: "My header",
 };

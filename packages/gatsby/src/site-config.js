@@ -3,8 +3,8 @@
 //
 // manifest by each language
 //
-const manifestEn = require("./i18n/en/manifest.json");
-const manifestKo = require("./i18n/ko/manifest.json");
+const manifestEn = require("../static-content/langs/en/manifest.json");
+const manifestKo = require("../static-content/langs/ko/manifest.json");
 
 const siteConfig = {
   backgroundColor: `#20232a`,

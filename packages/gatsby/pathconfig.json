@@ -7,7 +7,7 @@
       "@/components": ["./src/components"],
       "@/component-views/*": ["./src/components/views/*"],
       "@/page-views/*": ["./src/page-views/*"],
-      "@/pages/*": ["./src/pages/*"],
+      "@/static-content/*": ["./static-content/*"],
       "@/styles/*": ["./src/styles/*"]
     }
   },
@@ -19,7 +19,7 @@
       "@/components": "./src/components",
       "@/component-views": "./src/components/views",
       "@/page-views": "./src/page-views",
-      "@/pages": "./src/pages",
+      "@/static-content": "./static-content",
       "@/styles": "./src/styles"
     }
   },
@@ -32,7 +32,7 @@
     "@/components": "/src/components",
     "@/component-views": "/src/components/views",
     "@/page-views": "/src/page-views",
-    "@/pages": "/src/pages",
+    "@/static-content": "/static-content",
     "@/styles": "/src/styles"
   }
 }
