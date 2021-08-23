@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ThemeProvider } from "./theme";
-//import I18NProvider from "./i18n/context";
+import I18NProvider from "./i18n/context";
 
 interface Props {
   element: any;
@@ -10,7 +10,9 @@ interface Props {
 
 const wrapPageElement: React.FC<Props> = ({ element, props: { pageContext, location } }) => (
   <ThemeProvider pageContext={pageContext} location={location}>
-    {element}
+    <I18NProvider pageContext={pageContext}>
+      {element}
+    </I18NProvider>
   </ThemeProvider>
 );
 

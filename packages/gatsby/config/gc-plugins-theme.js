@@ -3,7 +3,6 @@ const path = require("path");
 const {
   siteConfig: { defaultLangCode, enabledLocales, localeConfigPath },
 } = require("../src/site-config");
-const { i18nextOptions } = require("../src/i18n/i18next-config");
 
 module.exports = [
   `gatsby-plugin-sass`,
@@ -22,16 +21,6 @@ module.exports = [
       locales: enabledLocales,
       prefixDefault: false,
       configPath: require.resolve(localeConfigPath),
-    },
-  },
-  {
-    resolve: `gatsby-theme-my-i18n-react-i18next`,
-    options: {
-      // directory for locale files
-      locales: path.resolve(__dirname, `../src/i18n`),
-      i18nextOptions: {
-        ns: i18nextOptions.ns,
-      },
     },
   },
 ];

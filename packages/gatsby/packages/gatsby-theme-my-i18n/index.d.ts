@@ -1,12 +1,12 @@
 import * as React from "react";
 
 export const LocaleContext: React.Context<string>;
-export function LocaleProvider({ children, pageContext: { locale }, }: {
+/*export function LocaleProvider({ children, pageContext: { locale }, }: {
   children: any;
   pageContext: {
     locale?: string;
   };
-}): JSX.Element;
+}): JSX.Element;*/
 export function MdxLink({ href, children, ...props }: {
   [x: string]: any;
   href: any;
@@ -31,6 +31,12 @@ export function localizedPath({ defaultLang, prefixDefault, locale, path }: {
 }): any;
 export function useLocalization(): {
   locale: string;
+  defaultLang: any;
+  prefixDefault: any;
+  config: any;
+  localizedPath: typeof localizedPath;
+};
+export function useLanguage(): {
   defaultLang: any;
   prefixDefault: any;
   config: any;

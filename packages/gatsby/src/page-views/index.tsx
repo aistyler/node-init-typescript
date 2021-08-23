@@ -1,5 +1,4 @@
 import React from "react";
-import { ApolloError } from "@apollo/client";
 import { Row, Col, Container, ListGroup } from "react-bootstrap";
 import { withTranslation, WithTranslation } from "react-i18next";
 
@@ -9,7 +8,9 @@ import { siteMetadata } from "@/src/site-config";
 interface Props extends WithTranslation {
   location: Location;
   loading?: boolean;
-  error?: ApolloError;
+  error?: {
+    message: string;
+  };
   data?: any;
   user?: Gql.UsersPermissionsMe;
 }

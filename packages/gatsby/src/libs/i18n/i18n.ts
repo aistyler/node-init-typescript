@@ -5,10 +5,9 @@ import { initReactI18next } from "react-i18next";
 
 import { i18nextOptions, enabledLocales } from "@/src/i18n/i18next-config";
 
-const useStaicLoading = true;
+const useStaticLoading = true;
 
-const i18nInstance = i18next.createInstance();
-const resources: Resource = !useStaicLoading
+const resources: Resource = !useStaticLoading
   ? {}
   : enabledLocales.reduce((acc, locale) => {
       acc[locale] = {} as ResourceLanguage;
@@ -20,17 +19,17 @@ const resources: Resource = !useStaicLoading
       return acc;
     }, {} as Resource);
 
-i18nInstance.use(initReactI18next).init({
+i18next.use(initReactI18next).init({
   resources,
   ...i18nextOptions,
 });
 
-const setLanguage = (locale: string): void => {
-  i18nInstance.language = locale;
+const changeLanguage = (locale: string): void => {
+  if (i18next.language !== locale) i18next.changeLanguage(locale);
 };
 
 const loadLanguages = async (locale: string): Promise<void> => {
-  if (resources[locale]) return setLanguage(locale);
+  if (resources[locale]) return changeLanguage(locale);
 
   resources[locale] = {};
   i18nextOptions.ns.forEach((ns) => {
@@ -38,7 +37,7 @@ const loadLanguages = async (locale: string): Promise<void> => {
     const data = require(`@/src/i18n/${locale}/${ns}.json`);
     resources[locale][ns] = data;
   });
-  await i18nInstance.loadLanguages(locale);
+  await i18next.loadLanguages(locale);
 };
 
-export { setLanguage, loadLanguages, i18nInstance };
+export { changeLanguage, loadLanguages, i18next };
