@@ -1,6 +1,6 @@
 import React from "react";
 
-import View from "@/component-views/Header";
+import View from "../component-views/Header";
 
 //interface Props extends React.HTMLProps<HTMLDivElement> {
 interface Props {

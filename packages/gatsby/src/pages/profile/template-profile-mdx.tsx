@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, PageProps } from "gatsby";
 
-import View from "@/page-views/profile-mdx";
+import View from "~/page-views/profile-mdx";
 
 interface Props extends PageProps {
   data: Gql.ProfileMdxPageQuery;

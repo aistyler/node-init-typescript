@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, PageProps } from "gatsby";
 
-import View from "@/page-views/index";
+import View from "../page-views/index";
 
 interface DataType {
   site: {

@@ -3,7 +3,7 @@
 import i18next, { Resource, ResourceLanguage, i18n as I18N } from "i18next";
 import { initReactI18next } from "react-i18next";
 
-import { i18nextOptions, enabledLocales } from "@/src/i18n/i18next-config";
+import { i18nextOptions, enabledLocales } from "../../i18n/i18next-config";
 
 const useStaticLoading = true;
 

@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import React from "react";
 
-import { LocaleList } from "@/components";
+import { LocaleList } from "../components";
 
 import * as s from "./footer.module.scss";
 

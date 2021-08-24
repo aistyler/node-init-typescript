@@ -1,6 +1,6 @@
 import React from "react";
 
-import View from "@/component-views/Layout";
+import View from "../component-views/Layout";
 
 interface Props {
   pageTitle?: string;

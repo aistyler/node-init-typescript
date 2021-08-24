@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { navigate } from "gatsby";
 import { WithT } from "i18next";
 
-import View from "@/component-views/Login";
+import View from "~/component-views/Login";
 
 interface Props extends WithT {
   isAuthenticated: () => boolean;

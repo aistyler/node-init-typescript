@@ -2,37 +2,45 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": { 
-      "@/src/*": ["./src/*"],
-      "@/libs/*": ["./src/libs/*"],
-      "@/components": ["./src/components"],
-      "@/component-views/*": ["./src/components/views/*"],
-      "@/page-views/*": ["./src/page-views/*"],
-      "@/static-content/*": ["./static-content/*"],
-      "@/styles/*": ["./src/styles/*"]
+      "~/src/*": ["./src/*"],
+      "~/libs/*": ["./src/libs/*"],
+      "~/components": ["./src/components"],
+      "~/component-views/*": ["./src/component-views/*"],
+      "~/page-views/*": ["./src/page-views/*"],
+      "~/static-content/*": ["./static-content/*"],
+      "~/styles/*": ["./src/styles/*"],
+      "@my-components": ["./packages/my-components/src/components"],
+      "~/site-config": ["./src/site-config"]
     }
   },
   "babel": {
     "root": ".",
     "alias": {
-      "@/src": "./src",
-      "@/libs": "./src/libs",
-      "@/components": "./src/components",
-      "@/component-views": "./src/components/views",
-      "@/page-views": "./src/page-views",
-      "@/static-content": "./static-content",
-      "@/styles": "./src/styles"
+      "~/src": "./src",
+      "~/libs": "./src/libs",
+      "~/components": "./src/components",
+      "~/component-views": "./src/component-views",
+      "~/page-views": "./src/page-views",
+      "~/static-content": "./static-content",
+      "~/styles": "./src/styles",
+      "@my-components": "./packages/my-components/src/components",
+      "~/site-config": "./src/site-config"
     }
   },
   "jest": {
-    "^@/(.*)$": "<rootDir>/src/$1"
+    "^~/(.*)$": "<rootDir>/src/$1",
+    "^@my-components$": "<rootDir>/src//packages/my-components/src/components",
+    "~/site-config": "<rootDir>/src/site-config"
   },
   "webpack": {
-    "@/src": "/src",
-    "@/libs": "/src/libs",
-    "@/components": "/src/components",
-    "@/component-views": "/src/components/views",
-    "@/page-views": "/src/page-views",
-    "@/static-content": "/static-content",
-    "@/styles": "/src/styles"
+    "~/src": "/src",
+    "~/libs": "/src/libs",
+    "~/components": "/src/components",
+    "~/component-views": "/src/component-views",
+    "~/page-views": "/src/page-views",
+    "~/static-content": "/static-content",
+    "~/styles": "/src/styles",
+    "@my-components": "/packages/my-components/src/components",
+    "~/site-config": "/src/site-config"
   }
 }

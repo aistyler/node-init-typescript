@@ -2,8 +2,10 @@ import React from "react";
 import { Row, Col, Container, ListGroup } from "react-bootstrap";
 import { withTranslation, WithTranslation } from "react-i18next";
 
-import { Layout, Link, AuthButton } from "my-components";
-import { siteMetadata } from "@/src/site-config";
+import { Layout, Link } from "@my-components";
+import { AuthButton } from "~/components";
+
+import { siteMetadata } from "~/site-config";
 
 interface Props extends WithTranslation {
   location: Location;

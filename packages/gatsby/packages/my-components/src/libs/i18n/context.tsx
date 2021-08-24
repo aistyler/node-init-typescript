@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { I18nextProvider } from "react-i18next";
 
 // load i18n

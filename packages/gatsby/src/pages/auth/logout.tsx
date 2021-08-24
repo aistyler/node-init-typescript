@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { PageProps, navigate } from "gatsby";
 
 import { LocaleContext, useLocalization } from "gatsby-theme-my-i18n";
-import { Layout } from "@/components";
-import { AuthContext } from "@/libs/auth/context";
-import { isBrowser } from "@/libs/utils";
-import { siteMetadata } from "@/src/site-config";
+import { Layout } from "@my-components";
+import { AuthContext } from "~/libs/auth/context";
+import { isBrowser } from "~/libs/utils";
+import { siteMetadata } from "~/site-config";
 
 interface Props extends PageProps {}
 

@@ -3,8 +3,6 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import Layout from "./Layout";
 
-//import { siteMetadata } from "../site-config";
-
 export default {
   title: "Component-views/Layout",
   component: Layout,

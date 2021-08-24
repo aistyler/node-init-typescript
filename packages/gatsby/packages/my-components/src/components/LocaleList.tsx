@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { navigate } from "gatsby";
 import { LocaleContext, useLocalization } from "gatsby-theme-my-i18n";
 
-import View from "@/component-views/LocaleList";
+import View from "../component-views/LocaleList";
 
 interface Props {
   location: Location;

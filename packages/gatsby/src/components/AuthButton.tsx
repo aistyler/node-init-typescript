@@ -1,7 +1,7 @@
 import React from "react";
 import { WithT } from "i18next";
 
-import View from "@/component-views/AuthButton";
+import View from "~/component-views/AuthButton";
 
 interface Props extends WithT {
   user?: {

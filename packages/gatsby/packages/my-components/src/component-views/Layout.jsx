@@ -2,7 +2,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-import { Header, Footer, Meta } from "@/components";
+import { Header, Footer, Meta } from "../components";
 
 import "./layout.scss";
 

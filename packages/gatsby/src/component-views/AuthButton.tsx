@@ -1,7 +1,7 @@
 import React from "react";
 import { WithT } from "i18next";
 
-import { Link } from "@/components";
+import { Link } from "@my-components";
 
 interface Props extends WithT {
   user?: {

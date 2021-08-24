@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { graphql, PageProps } from "gatsby";
 import { gql, useQuery } from "@apollo/client";
 
-import { AuthContext } from "@/libs/auth/context";
-import View from "@/page-views/index";
+import { AuthContext } from "~/libs/auth/context";
+import View from "~/page-views/index";
 
 interface Props extends PageProps<Gql.IndexPageQuery> {}
 

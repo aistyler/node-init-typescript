@@ -1,8 +1,8 @@
 import * as React from "react";
 import { PageProps } from "gatsby";
 
-import { Layout } from "@/components";
-import { siteMetadata } from "@/src/site-config";
+import { Layout } from "@my-components";
+import { siteMetadata } from "~/site-config";
 
 interface Props extends PageProps {}
 

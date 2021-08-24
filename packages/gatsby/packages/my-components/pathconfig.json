@@ -2,37 +2,19 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": { 
-      "@/src/*": ["./src/*"],
-      "@/libs/*": ["./src/libs/*"],
-      "@/components": ["./src/components"],
-      "@/component-views/*": ["./src/component-views/*"],
-      "@/page-views/*": ["./src/page-views/*"],
-      "@/static-content/*": ["./static-content/*"],
-      "@/styles/*": ["./src/styles/*"]
+      "~/site-config": ["./src/site-config"]
     }
   },
   "babel": {
     "root": ".",
     "alias": {
-      "@/src": "./src",
-      "@/libs": "./src/libs",
-      "@/components": "./src/components",
-      "@/component-views": "./src/component-views",
-      "@/page-views": "./src/page-views",
-      "@/static-content": "./static-content",
-      "@/styles": "./src/styles"
+      "~/site-config": "./src/site-config"
     }
   },
   "jest": {
-    "^@/(.*)$": "<rootDir>/src/$1"
+    "^~/site-config$": "<rootDir>/src/site-config"
   },
   "webpack": {
-    "@/src": "/src",
-    "@/libs": "/src/libs",
-    "@/components": "/src/components",
-    "@/component-views": "/src/component-views",
-    "@/page-views": "/src/page-views",
-    "@/static-content": "/static-content",
-    "@/styles": "/src/styles"
+    "~/site-config": "/site-config"
   }
 }

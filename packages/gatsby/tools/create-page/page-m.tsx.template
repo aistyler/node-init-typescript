@@ -2,7 +2,7 @@ import React from "react";
 import { PageProps, useStaticQuery, graphql } from "gatsby";
 import { gql, useQuery } from "@apollo/client";
 
-import View from "@/views/<%= name%>";
+import View from "~/views/<%= name%>";
 
 interface Props extends PageProps {}
 

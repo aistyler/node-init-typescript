@@ -1,9 +1,10 @@
 import React from "react";
 import { withTranslation, WithTranslation } from "react-i18next";
 
-import { Layout, Login } from "@/components";
+import { Layout } from "@my-components";
+import { Login } from "~/components";
 
-import { siteMetadata } from "@/src/site-config";
+import { siteMetadata } from "~/site-config";
 
 interface Props extends WithTranslation {
   location: Location;

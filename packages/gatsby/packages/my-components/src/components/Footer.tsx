@@ -1,6 +1,6 @@
 import React from "react";
 
-import View from "@/component-views/Footer";
+import View from "../component-views/Footer";
 
 interface Props {
   location: Location;

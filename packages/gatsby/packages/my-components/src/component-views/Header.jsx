@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import React from "react";
 
-import { Link } from "@/components";
+import { Link } from "../components";
 
 import "./header.scss";
 

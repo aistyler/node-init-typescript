@@ -13,17 +13,6 @@ module.exports = {
         },
       },
     ],
-    [
-      "@babel/preset-typescript",
-      {
-        // See https://babeljs.io/docs/en/babel-preset-typescript
-        isTSX: true,
-        allExtensions: true,
-        allowDeclareFields: true,
-        onlyRemoveTypeImports: true,
-        optimizeConstEnums: true,
-      },
-    ],
   ],
   plugins: [
     // path aliases using module-resolve
@@ -32,8 +21,4 @@ module.exports = {
     ["@babel/plugin-proposal-decorators", { legacy: true }],
     ["@babel/plugin-proposal-private-methods", { loose: true }],
   ],
-  targets: {
-    node: "current",
-  },
-  ignore: [/\.spec\.js$/,/\.spec\.ts$/],
 };
