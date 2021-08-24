@@ -7,7 +7,7 @@
     "build": "NODE_ENV=production gatsby build --no-uglify",
     "build:prod": "NODE_ENV=production gatsby build",
     "dev": "gatsby develop --port 8000",
-    "dist": "yarn dist:clean && babel --out-dir ./dist ./src -x .js,.jsx,.ts,.tsx --env-name production && ls -al ./dist",
+    "dist": "yarn dist:clean && yarn build && babel --out-dir ./dist ./src -x .js,.jsx,.ts,.tsx --env-name production && ls -al ./dist",
     "dist:clean": "rm -rf ./dist",
     "clean": "gatsby clean",
     "serve": "gatsby serve --port 9000",
@@ -16,7 +16,7 @@
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
     "storybook": "start-storybook --port 6006 --static-dir public",
-    "sb:views": "NODE_ENV=test SB_STORIES=views yarn storybook",
+    "sb:views": "yarn build && NODE_ENV=test SB_STORIES=views yarn storybook",
     "sb:all": "NODE_ENV=test SB_STORIES=all yarn storybook",
     "build:storybook": "build-storybook"
   },

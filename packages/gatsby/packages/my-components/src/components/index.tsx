@@ -8,5 +8,3 @@ export * from "./Layout";
 export * from "./Meta";
 export * from "./Link";
 export * from "./LocaleList";
-export * from "./Login";
-export * from "./AuthButton";
