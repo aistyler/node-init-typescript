@@ -1,4 +1,4 @@
-const { customPathAlias } = require("../config/gn-webpack-config");
+const { customPathAlias, customizeCss } = require("../config/gn-webpack-config");
 const devMode = process.env.NODE_ENV !== "production";
 
 const stories = {
@@ -36,7 +36,24 @@ module.exports = {
         staticQueryDir: "page-data/sq/d",
       }]
     );
+    
+    // use css gatsby webpack config
+    customizeCss(config, {isDev: true});
 
+    //
+    // resolve from gatsby webpack config
+    config.resolve = {
+      ...config.resolve,
+      ...customPathAlias.resolve
+    };
+
+    //console.log(">>>>>>>>>>>>>>>>>> RULES");
+    //console.log(config.module.rules);
+    return config;
+  },
+}
+
+/*
     //
     // support .module.css
     const cssRule = find_rule(config, `/\\.css$/`);
@@ -137,16 +154,4 @@ module.exports = {
       ]
     };
     config.module.rules.push(scssModuleRule);
-
-    //
-    // resolve from gatsby webpack config
-    config.resolve = {
-      ...config.resolve,
-      ...customPathAlias.resolve
-    };
-
-    //console.log(">>>>>>>>>>>>>>>>>> RULES");
-    //console.log(config.module.rules);
-    return config;
-  },
-}
+*/

@@ -3,9 +3,11 @@ import React from "react";
 
 import { LocaleList } from "../components";
 
-import s from "./footer.module.scss";
+let s = require("./footer.module.scss");
+s = s.default || s;
 
 export default ({ location, siteMetadata, pure = false }) => {
+
   console.log(">>>>>> FOOTER.s", JSON.stringify(s));
   return (
     <div className="container-fluid px-0">
@@ -16,7 +18,7 @@ export default ({ location, siteMetadata, pure = false }) => {
             <div className={`${s.noticeContainer}`}>
               <h4>{siteMetadata.copyright}</h4>
               <h4>
-                Based on <a href="https://github.com/aistyler">AIStyler</a>.
+                Based on <a href="https://github.com/aistyler">AIStyler</a>
               </h4>
             </div>
             {!pure &&
