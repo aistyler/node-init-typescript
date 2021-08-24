@@ -2,7 +2,7 @@ import React from "react";
 import { Row, Col, Container, ListGroup } from "react-bootstrap";
 import { withTranslation, WithTranslation } from "react-i18next";
 
-import { Layout, Link } from "../components";
+import { Layout } from "../components";
 import { siteMetadata } from "~/site-config";
 
 interface Props extends WithTranslation {

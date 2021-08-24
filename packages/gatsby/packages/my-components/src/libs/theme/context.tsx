@@ -18,7 +18,7 @@ interface Props {
   pageContext: any;
 }
 
-const ThemeProvider: React.FC<Props> = ({ children, pageContext }) => {
+const ThemeProvider: React.FC<Props> = ({ children }) => {
   const [theme, setTheme] = useState(defaultContext.theme);
   return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 };

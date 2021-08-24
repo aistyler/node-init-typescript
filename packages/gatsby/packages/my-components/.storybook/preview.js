@@ -2,8 +2,7 @@
 import React from 'react';
 import { action } from "@storybook/addon-actions"
 import { MockedProvider } from '@apollo/client/testing'; // Use for Apollo Version 3+
-//import I18NProvider from '../src/libs/i18n/context';
-//import { LocaleProvider } from 'gatsby-theme-my-i18n';
+import { wrapPageElement } from '../src/libs/wrap-page-element';
 
 // root scss from src styles
 import "../src/styles/style.scss";
@@ -37,14 +36,21 @@ export const parameters = {
     // any props you want to pass to MockedProvider on every story
   },
 };
-/*
+
+//
+// Global decorators
+//
 export const decorators = [
   (Story) => (
-    <I18NProvider pageContext={{ locale: "ko" }}>
-      <LocaleProvider value="ko">
-        <Story />
-      </LocaleProvider>
-    </I18NProvider>
+    React.createElement(
+      wrapPageElement,
+      {
+        element: React.createElement(Story),
+        props:{
+          pageContext: { locale: "ko" },
+          location: window.location,
+        },
+      }
+    )
   ),
 ];
-*/

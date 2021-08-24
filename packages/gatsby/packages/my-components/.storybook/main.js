@@ -6,8 +6,8 @@ const stories = {
     "../src/component-views/**/*.stories.@(js|jsx|ts|tsx)",
   ],
   "all": [
-    "../src/stories/*.stories.mdx",
-    "../src/stories/*.stories.@(js|jsx|ts|tsx)",
+    "../src/**/*.stories.mdx",
+    "../src/**/*.stories.@(js|jsx|ts|tsx)",
   ],
 };
 

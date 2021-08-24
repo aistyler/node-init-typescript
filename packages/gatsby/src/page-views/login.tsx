@@ -1,8 +1,7 @@
 import React from "react";
 import { withTranslation, WithTranslation } from "react-i18next";
 
-import { Layout } from "@my-components";
-import { Login } from "~/components";
+import { Layout, Login } from "@my-components";
 
 import { siteMetadata } from "~/site-config";
 

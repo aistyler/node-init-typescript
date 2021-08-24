@@ -3,7 +3,7 @@ const { customPathAlias } = require("../config/gn-webpack-config");
 const stories = {
   "views": [
     "../src/page-views/**/*.stories.@(js|jsx|ts|tsx)",
-    "../src/components/views/**/*.stories.@(js|jsx|ts|tsx)",
+    "../src/component-views/**/*.stories.@(js|jsx|ts|tsx)",
   ],
   "all": [
     "../src/stories/*.stories.mdx",

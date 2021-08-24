@@ -2,19 +2,25 @@
 
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { withTranslation } from "react-i18next";
 
 import Login from "./Login";
 
+//
+// with translation
+//
+const Target = withTranslation("common")(Login);
+
 export default {
   title: "Component-views/Login",
-  component: Login,
-} as ComponentMeta<typeof Login>;
+  component: Target,
+} as ComponentMeta<typeof Target>;
 
 // eslint-disable-next-line react/jsx-props-no-spreading
-const Template: ComponentStory<typeof Login> = (args: any) => <Login {...args} />;
+const Template: ComponentStory<typeof Target> = (args: any) => <Target {...args} />;
 
-export const LoginDefault = Template.bind({});
-LoginDefault.args = {
+export const Default = Template.bind({});
+Default.args = {
   identifier: "id",
   onChangeIdentifier: () => {},
   password: "password",
@@ -22,12 +28,10 @@ LoginDefault.args = {
   onSubmit: () => {},
   loading: false,
   error: "",
-  //@ts-ignore
-  t: (key: string) => key,
 };
 
-export const LoginLoading = Template.bind({});
-LoginLoading.args = {
+export const Loading = Template.bind({});
+Loading.args = {
   identifier: "id",
   onChangeIdentifier: () => {},
   password: "password",
@@ -35,12 +39,10 @@ LoginLoading.args = {
   onSubmit: () => {},
   loading: true,
   error: "",
-  //@ts-ignore
-  t: (key: string) => key,
 };
 
-export const LoginError = Template.bind({});
-LoginError.args = {
+export const Error = Template.bind({});
+Error.args = {
   identifier: "id",
   onChangeIdentifier: () => {},
   password: "password",
@@ -48,6 +50,4 @@ LoginError.args = {
   onSubmit: () => {},
   loading: false,
   error: "error message",
-  //@ts-ignore
-  t: (key: string) => key,
 };
