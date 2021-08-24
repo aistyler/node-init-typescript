@@ -10,7 +10,7 @@ interface Props extends WithTranslation {
   data?: any;
 }
 
-const View: React.FC<Props> = ({  data, location, t, tReady }) => {
+const View: React.FC<Props> = ({ data, location, t, tReady }) => {
   return (
     <Layout siteMetadata={siteMetadata} location={location} pageTitle={data ? data.title : ""}>
       <Container className="text-center">

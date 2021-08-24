@@ -7,19 +7,14 @@ interface DataType {
   site: {
     siteMetadata: {
       title: string;
-    }
-  }
+    };
+  };
 }
 
 interface Props extends PageProps<DataType> {}
 
 const Index: React.FC<Props> = ({ data, location }) => {
-  return (
-    <View
-      location={location}
-      data={data}
-    />
-  );
+  return <View location={location} data={data} />;
 };
 
 export default Index;

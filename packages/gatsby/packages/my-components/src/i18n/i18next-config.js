@@ -1,6 +1,6 @@
 const {
   siteConfig: { defaultLangCode, enabledLocales: _enabledLocales },
-} = require("../site-config");
+} = require("~/site-config");
 
 const defaultNS = `common`;
 const fallbackLng = `en`;

@@ -18,9 +18,9 @@ IndexDefault.args = {
   data: {
     site: {
       siteMetadata: {
-        title: "My Page"
-      }
-    }
+        title: "My Page",
+      },
+    },
   },
   //@ts-ignore
   t: (key: string) => key,

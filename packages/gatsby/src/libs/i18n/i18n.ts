@@ -8,7 +8,7 @@ import { i18nextOptions, enabledLocales } from "~/src/i18n/i18next-config";
 const useStaticLoading = true;
 
 const loadLanguageResource = (locale: string, ns: string) =>
-  require(`~/static-content/langs/${locale}/${ns}.json`);
+  require(`~/langs/${locale}/${ns}.json`);
 
 //
 // language resources
