@@ -1,3 +1,4 @@
+@import '../styles/variables';
 
 footer.page-footer {
 	display: flex;
@@ -9,7 +10,7 @@ footer.page-footer {
 
   padding: 50px 5px 5px;
   clear: both;
-  background-color: white;
+  background-color: $color-primary;
   color: white;
   width: 100%;
 }

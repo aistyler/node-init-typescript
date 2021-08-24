@@ -3,10 +3,10 @@ import React from "react";
 
 import { LocaleList } from "../components";
 
-import s from "./footer.module.css";
+import s from "./footer.module.scss";
 
 export default ({ location, siteMetadata, pure = false }) => {
-  //console.log(">>>>>> FOOTER.s", JSON.stringify(s));
+  console.log(">>>>>> FOOTER.s", JSON.stringify(s));
   return (
     <div className="container-fluid px-0">
       <div className="row">

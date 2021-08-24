@@ -40,56 +40,58 @@ module.exports = {
     //
     // support .module.css
     const cssRule = find_rule(config, `/\\.css$/`);
-    // update css-loader option to support .module.css
-    cssRule.use.forEach((mod) => {
-      if (mod && mod.loader && mod.loader.match(/[\/\\]css-loader/g)) {
-        mod.options = {
-          ...mod.options,
-          modules: {
-            auto: true, // enable .module.css
-            namedExport: true,
-            exportLocalsConvention: function (name) {
-              return name.replace(/-/g, "_");
-            },
-          }
-        }
-      }
-    });
-    /*
+    // exclude .module.css from css rule
+    cssRule.exclude = /\.module\.css$/;
+
+    //
+    // .module.css
     const cssModuleRule = {
       ...cssRule,
       test: /\.module\.css$/,
-      use: cssRule.use.map(r => {
-        if (r && r.loader && r.loader.match(/[\/\\]css-loader/g)) {
+      exclude: [],
+      use: cssRule.use.map((item) => {
+        if (item && item.loader && item.loader.match(/[\/\\]css-loader/g)) {
           return {
-            ...r,
+            ...item,
             // see https://github.com/webpack-contrib/css-loader
+            // css-loader version in the storybook builder is ^5.0.0
             options: {
-              ...r.options,
+              ...item.options,
+              esModule: true,
               modules: {
-                
+                mode: "local",
+                localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                exportLocalsConvention: "camelCaseOnly",
               },
             },
           };
         }
-        return r;
+        return item;
       }),
-      exclude: [],
     };
-    // exclude .module.css from css rule
-    cssRule.exclude = /\.module\.css$/;
     config.module.rules.push(cssModuleRule);
-    */
 
     //
-    // .scss loader
+    // .scss rule
     let scssRule = find_rule(config, `/\\.scss$/`);
     if (!scssRule) {
       scssRule = {
         test: /\.scss$/,
-        exclude: /\.module\.scss$/,
+        exclude: /\.module\.scss$/, // do not process .module.scss
         use: [
-          ...cssRule.use,
+          ...cssRule.use.map((item) => {
+            if (item && item.loader && item.loader.match(/[\/\\]css-loader/g)) {
+              // override css-loader
+              const newItem = { ...item };
+              newItem.options = {
+                importLoaders: 1,
+                modules: false,
+                sourceMap: true,
+              };
+              return newItem;
+            }
+            return item;
+          }),
           // Compiles Sass to CSS
           {
             loader: 'sass-loader',
@@ -104,11 +106,28 @@ module.exports = {
       config.resolve.extensions.push(".scss");
     }
     //
-    // .module.scss loader
+    // .module.scss rule
     const scssModuleRule = {
       test: /\.module\.scss$/,
       use: [
-        ...cssRule.use,
+        ...cssRule.use.map((item) => {
+          if (item && item.loader && item.loader.match(/[\/\\]css-loader/g)) {
+            // override css-loader
+            return {
+              ...item,
+              options: {
+                importLoaders: 1,
+                modules: {
+                  mode: "local",
+                  localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                  exportLocalsConvention: "camelCaseOnly",
+                },
+              }
+            };
+          }
+          return item;
+        }),
+        // Compiles Sass to CSS
         {
           loader: 'sass-loader',
           options: {
