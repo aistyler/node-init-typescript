@@ -1,4 +1,5 @@
 const { customPathAlias } = require("../config/gn-webpack-config");
+const devMode = process.env.NODE_ENV !== "production";
 
 const stories = {
   "views": [
@@ -10,6 +11,10 @@ const stories = {
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
   ],
 };
+
+const find_rule = (config, test) => {
+  return config.module.rules.find((r) => r && r.test && r.test.toString() === test);
+}
 
 module.exports = {
   "stories": stories[process.env.SB_STORIES || "all"],  
@@ -31,19 +36,79 @@ module.exports = {
         staticQueryDir: "page-data/sq/d",
       }]
     );
-    
-    // .scss loader
-    const scssRule = {
-      test: /\.s(a|c)ss$/,
-      use: [
-        'style-loader',
-        {
-          loader: 'css-loader',
-          options: {
-            modules: false,
-            importLoaders: 2,
+
+    //
+    // support .module.css
+    const cssRule = find_rule(config, `/\\.css$/`);
+    // update css-loader option to support .module.css
+    cssRule.use.forEach((mod) => {
+      if (mod && mod.loader && mod.loader.match(/[\/\\]css-loader/g)) {
+        mod.options = {
+          ...mod.options,
+          modules: {
+            auto: true, // enable .module.css
+            namedExport: true,
+            exportLocalsConvention: function (name) {
+              return name.replace(/-/g, "_");
+            },
           }
-        },
+        }
+      }
+    });
+    /*
+    const cssModuleRule = {
+      ...cssRule,
+      test: /\.module\.css$/,
+      use: cssRule.use.map(r => {
+        if (r && r.loader && r.loader.match(/[\/\\]css-loader/g)) {
+          return {
+            ...r,
+            // see https://github.com/webpack-contrib/css-loader
+            options: {
+              ...r.options,
+              modules: {
+                
+              },
+            },
+          };
+        }
+        return r;
+      }),
+      exclude: [],
+    };
+    // exclude .module.css from css rule
+    cssRule.exclude = /\.module\.css$/;
+    config.module.rules.push(cssModuleRule);
+    */
+
+    //
+    // .scss loader
+    let scssRule = find_rule(config, `/\\.scss$/`);
+    if (!scssRule) {
+      scssRule = {
+        test: /\.scss$/,
+        exclude: /\.module\.scss$/,
+        use: [
+          ...cssRule.use,
+          // Compiles Sass to CSS
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      };
+      // add new scss rule
+      config.module.rules.push(scssRule);
+      config.resolve.extensions.push(".scss");
+    }
+    //
+    // .module.scss loader
+    const scssModuleRule = {
+      test: /\.module\.scss$/,
+      use: [
+        ...cssRule.use,
         {
           loader: 'sass-loader',
           options: {
@@ -52,42 +117,17 @@ module.exports = {
         }
       ]
     };
-    // .module.scss loader
-    const scssModuleRule = {
-      test: /\.module\.s(a|c)ss$/,
-      use: [
-        'style-loader',
-        {
-          loader: 'css-loader',
-          options: {
-            modules: false,
-            importLoaders: 2,
-          }
-        },
-        {
-          loader: 'sass-loader',
-          options: {
-            sourceMap: true
-          }
-        }
-      ]
-    }
-    // scss loader
-    config.module.rules = [
-      ...config.module.rules,
-      {
-        oneOf: [scssRule, scssModuleRule],
-      }
-    ];
-    config.resolve.extensions = [
-      ...config.resolve.extensions,
-      ".scss"
-    ];
+    config.module.rules.push(scssModuleRule);
+
+    //
     // resolve from gatsby webpack config
     config.resolve = {
       ...config.resolve,
       ...customPathAlias.resolve
     };
+
+    //console.log(">>>>>>>>>>>>>>>>>> RULES");
+    //console.log(config.module.rules);
     return config;
   },
 }
