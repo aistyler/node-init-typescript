@@ -8,7 +8,7 @@ interface Props {}
 const App: React.FC<Props> = () => {
   return (
     <div className="App">
-      <Header className="App-header">
+      <Header>
         <p>Header</p>
       </Header>
 
