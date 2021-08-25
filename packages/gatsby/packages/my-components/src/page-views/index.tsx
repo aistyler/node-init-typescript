@@ -13,7 +13,7 @@ interface Props extends WithTranslation {
 const View: React.FC<Props> = ({ data, location, t, tReady }) => {
   return (
     <Layout siteMetadata={siteMetadata} location={location} pageTitle={data ? data.title : ""}>
-      <Container className="text-center">
+      <Container>
         {data && (
           <Row className="justify-content-center">
             <Col>
@@ -22,21 +22,22 @@ const View: React.FC<Props> = ({ data, location, t, tReady }) => {
             </Col>
           </Row>
         )}
-        <Row className="justify-content-center">
-          <Col>
+        <Row>
+          <Col className="text-center">
             <ListGroup>
-              <ListGroup.Item action href="https://react-bootstrap.github.io/" target="_blank">
-                react-bootstrap
-              </ListGroup.Item>
-              <ListGroup.Item action href="https://react-icons.netlify.com" target="_blank">
-                react-icons
+              <ListGroup.Item
+                action
+                href="https://getbootstrap.com/docs/4.0/layout/grid/"
+                target="_blank"
+              >
+                Bootstrap Grid Layout
               </ListGroup.Item>
               <ListGroup.Item
                 action
-                href="https://www.gatsbyjs.org/packages/gatsby-plugin-sass/"
+                href="https://getbootstrap.com/docs/4.0/components/alerts/"
                 target="_blank"
               >
-                gatsby-plugin-sass
+                Bootstrap Components
               </ListGroup.Item>
             </ListGroup>
           </Col>

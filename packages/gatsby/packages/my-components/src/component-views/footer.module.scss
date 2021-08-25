@@ -1,25 +1,24 @@
 @import '../styles/variables';
 
-.layout-footer {
-  min-height: 20vh;
+.page-footer {
+  height: 8vh;
   background-color: $color-primary;
+}
+
+.page-footer .container-fluid {
+  color: white;
+  height: inherit;
+}
+
+.page-footer .container-fluid .row {
+  /* specify height for vertical align, 'align-items-center' */
+  height: inherit;
+}
+
+.notice-col {
   color: white;
 }
 
-footer.page-footer {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-
-  padding: 50px 5px 5px;
-}
-
-.notice-container {
-  display: flex;
-}
-
-.notice-container h4 {
-  text-align: center;
+.notice-col h4 {
   margin: 0;
 }

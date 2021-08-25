@@ -1,19 +1,23 @@
 @import '../styles/variables';
 
-header.page-header {
+.page-header {
+  height: 8vh;
   background: green;
 }
 
-.header-container {
-  margin: 0 auto;
-  padding: 0.45rem 1.0875rem;
+.page-header .container-fluid {
+  height: inherit;
 }
 
-.header-container h1 {
+.page-header .container-fluid .row {
+  height: inherit;
+}
+
+.page-header h1 {
   margin: 0;
 }
 
-.header-container a {
+.page-header a {
   color: white;
   text-decoration: none;
 }

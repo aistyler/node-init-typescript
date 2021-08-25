@@ -9,21 +9,22 @@ s = s.default || s;
 
 export default ({ location, siteMetadata, pure = false }) => {
   return (
-    <Container fluid className={`px-0 ${s.layoutFooter}`}>
-      <Row>
-        <Col className={`footer-col`}>
-          <footer className={`${s.pageFooter}`}>
-            <div className="empty-container"/>
-            <div className={`${s.noticeContainer}`}>
+    <footer className={`${s.pageFooter}`}>
+    <Container fluid className={`${s.containerFluid}`}>
+      <Row className={`${s.row} justify-content-end align-items-end`}>
+        <Col sm={6} className={`d-flex p-2 ${s.noticeCol}`}>
               <h4>{siteMetadata.copyright}</h4>
               <h4>
                 Based on <a href="https://github.com/aistyler">AIStyler</a>
               </h4>
-            </div>
-            {!pure && <LocaleList location={location} />}
-          </footer>
         </Col>
+        {!pure && (
+          <Col sm={2} className="d-flex p-2 justify-content-end">
+            <LocaleList location={location} />
+          </Col>
+        )}
       </Row>
     </Container>
+    </footer>
   );
 };
