@@ -1,5 +1,6 @@
 import React from "react";
 import { withTranslation, WithTranslation } from "react-i18next";
+import { Container, Row, Col } from "react-bootstrap";
 
 import { Layout, Login } from "@my-components";
 
@@ -15,13 +16,19 @@ interface Props extends WithTranslation {
 const View: React.FC<Props> = ({ redirectPath, isAuthenticated, loginFunc, location, t }) => {
   return (
     <Layout siteMetadata={siteMetadata} location={location} pageTitle="Login">
-      <Login
-        isAuthenticated={isAuthenticated}
-        login={loginFunc}
-        redirectPath={redirectPath}
-        isPopup={false}
-        t={t}
-      />
+      <Container>
+        <Row>
+          <Col>
+            <Login
+              isAuthenticated={isAuthenticated}
+              login={loginFunc}
+              redirectPath={redirectPath}
+              isPopup={false}
+              t={t}
+            />
+          </Col>
+        </Row>
+      </Container>
     </Layout>
   );
 };
