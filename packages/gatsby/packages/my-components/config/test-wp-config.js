@@ -11,4 +11,13 @@ const webpackConfig = {
 
 customizeCss(webpackConfig, { isDev: true });
 
-console.log(">>>", JSON.stringify(webpackConfig, function(k,v) { return k === "test" ? v.toString() : v; }, 2));
+console.log(
+  ">>>",
+  JSON.stringify(
+    webpackConfig,
+    function (k, v) {
+      return k === "test" ? v.toString() : v;
+    },
+    2
+  )
+);
