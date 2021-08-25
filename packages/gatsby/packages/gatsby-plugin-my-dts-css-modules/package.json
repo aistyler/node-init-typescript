@@ -31,7 +31,7 @@
 		"check-outdated": "npx --yes -- check-outdated --ignore-pre-releases"
 	},
 	"engines": {
-    "node": ">=12.13.0"
+		"node": ">=12.13.0"
 	},
 	"dependencies": {
 		"dts-css-modules-loader": "1.2.2"

@@ -4,11 +4,12 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import { Header, Footer, Meta } from "../components";
 
-import "./layout.scss";
+let s = require("./layout.module.scss");
+s = s.default || s;
 
 export default ({ pageTitle, siteMetadata, location, children }) => (
   <>
-    <Container fluid className="px-0 main">
+    <Container fluid className={`px-0 ${s.layoutMain}`}>
       {/* Header */}
       <Row className="justify-content-center">
         <Col>

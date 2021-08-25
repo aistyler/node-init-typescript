@@ -1,32 +1,25 @@
 @import '../styles/variables';
 
+.layout-footer {
+  min-height: 20vh;
+  background-color: $color-primary;
+  color: white;
+}
+
 footer.page-footer {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-between;
-	align-items: flex-end;
-	align-content: stretch;
 
   padding: 50px 5px 5px;
-  clear: both;
-  background-color: $color-primary;
-  color: white;
-  width: 100%;
 }
 
 .notice-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .notice-container h4 {
   text-align: center;
   margin: 0;
-}
-
-.locale-list-container {
-  display: flex;
-  flex-wrap: wrap;
 }

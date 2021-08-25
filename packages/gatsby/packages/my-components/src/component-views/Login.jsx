@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
 
-import * as s from "./login.module.scss";
+let s = require("./login.module.scss");
+s = s.default || s;
 
 const View = ({
   identifier,
