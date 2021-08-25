@@ -1,4 +1,4 @@
-# node-init-typescript-react
+# yanc-typescript-react
 
 ## Keywords
 
@@ -12,11 +12,11 @@
 
 ## Usage
 
-```npx aistyler/node-init {options} aistyler/node-init-typescript "packages/react/**"```
+```npx aistyler/yanc {options} aistyler/yanc-typescript "packages/react/**"```
 
-- See [aistyler/node-init](https://github.com/aistyler/node-init) for details.
+- See [aistyler/yanc](https://github.com/aistyler/yanc) for details.
 - e.g.
 
   ```sh
-  npx aistyler/node-init -o ./tmp aistyler/node-init-typescript "packages/react/**"
+  npx aistyler/yanc -o ./tmp aistyler/yanc-typescript "packages/react/**"
   ```

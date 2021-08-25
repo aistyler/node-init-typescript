@@ -1,4 +1,4 @@
-# node-init-typescript
+# yanc-typescript
 
 ## Usage
 
