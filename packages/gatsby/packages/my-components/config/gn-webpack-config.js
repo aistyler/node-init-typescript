@@ -228,6 +228,7 @@ module.exports = ({ actions, getConfig }) => {
       ...customPathAlias.resolve,
     },
   });
+  /*
   console.log(
     ">>>",
     JSON.stringify(
@@ -238,6 +239,7 @@ module.exports = ({ actions, getConfig }) => {
       2
     )
   );
+  */
 };
 
 module.exports.customPathAlias = customPathAlias;
