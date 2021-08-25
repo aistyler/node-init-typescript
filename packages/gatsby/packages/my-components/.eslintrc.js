@@ -54,6 +54,7 @@ const _common_rules = {
   "no-multi-assign": [0],
   "no-plusplus": [0],
   "no-unused-expressions": [2, { allowShortCircuit: true }],
+  "no-useless-escape": [1],
   "linebreak-style": [2, "unix"],
   "max-len": [
     1,
