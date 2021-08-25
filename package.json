@@ -2,7 +2,8 @@
   "name": "node-init-typescript",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "packages/gatsby/packages/*"
   ],
   "nodeInitIgnore": [
     ".prettierrc",
