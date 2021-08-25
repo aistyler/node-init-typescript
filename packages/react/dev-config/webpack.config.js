@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin");
+const ignoredFiles = require("react-dev-utils/ignoredFiles");
 
 const getClientEnvironment = require("./env");
 const paths = require("./paths");
@@ -98,6 +99,13 @@ function genConfig(webpackEnv) {
     // Tell webpack to provide empty mocks for them so importing them works.
     node: {
       global: false,
+    },
+    // Reportedly, this avoids CPU overload on some systems.
+    // https://github.com/facebook/create-react-app/issues/293
+    // src/node_modules is not ignored to support absolute imports
+    // https://github.com/facebook/create-react-app/issues/1065
+    watchOptions: {
+      ignored: ignoredFiles(paths.appSrcDir),
     },
     //
     // workaround dev-server bug
