@@ -17,7 +17,7 @@ module.exports = {
     // path aliases
     ...aliases,
   },
-  testPathIgnorePatterns: [`/node_modules/`, `/.cache/`, `/public/`],
+  testPathIgnorePatterns: [`/node_modules/`, `/.cache/`, `/public/`, `<rootDir>/packages/`],
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
   globals: {
     __PATH_PREFIX__: ``,

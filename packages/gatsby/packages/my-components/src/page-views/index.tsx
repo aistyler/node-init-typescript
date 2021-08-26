@@ -16,7 +16,7 @@ const View: React.FC<Props> = ({ data, location, t, tReady }) => {
       <Container>
         <Row>
           <Col className="text-center">
-            <h2>{t("page-index:profile")}</h2>
+            <h2>{t("page-index:title")}</h2>
           </Col>
         </Row>
         {data && (

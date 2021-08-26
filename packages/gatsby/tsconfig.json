@@ -14,7 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": false,
     "jsx": "preserve",
-    "typeRoots": ["./node_modules/@types"], /* List of folders to include type definitions from. */
+    // "typeRoots": [], /* List of folders to include type definitions from. */
   },
   "include": ["./src/**/*", "./static-content/**/*"],
   "exclude": ["node_modules", "public", ".cache", "tmp", "**/*-draft"]
