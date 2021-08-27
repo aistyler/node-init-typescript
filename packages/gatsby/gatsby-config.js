@@ -1,7 +1,7 @@
 // gatsby-config.js
 //require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` });
 
-const { siteConfig, siteMetadata } = require("./src/site-config");
+const { siteConfig, siteMetadata, pathPrefix } = require("./src/site-config");
 
 const plugins_static_pages = require("./config/gc-plugins-static-pages");
 const plugins_common = require("./config/gc-plugins-common");
@@ -50,4 +50,5 @@ module.exports = {
     ...plugins_theme,
   ],
   flags,
+  pathPrefix,
 };

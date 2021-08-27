@@ -5,6 +5,7 @@
 //
 const manifestEn = require("../static-content/langs/en/manifest.json");
 const manifestKo = require("../static-content/langs/ko/manifest.json");
+const pathPrefix = "/default";
 
 const siteConfig = {
   backgroundColor: `#20232a`,
@@ -23,7 +24,6 @@ const siteConfig = {
 const siteMetadata = {
   title: "NodeInit Gatsby",
   siteUrl: "http://localhost:8000",
-  pathPrefix: "",
   author: `@peterhs.kang`,
   twitter: `peterhskang`,
   copyright: `Copyright © 2020.`,
@@ -32,4 +32,5 @@ const siteMetadata = {
 module.exports = {
   siteConfig,
   siteMetadata,
+  pathPrefix,
 };

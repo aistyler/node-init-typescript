@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { navigate } from "gatsby";
+import { navigate, withPrefix } from "gatsby";
 import { LocaleContext, useLocalization } from "gatsby-theme-my-i18n";
 
 import View from "../component-views/LocaleList";
@@ -8,21 +8,26 @@ interface Props {
   location: Location;
 }
 
-const getLangCodeFromUrl = (langConfig: any[], location: Location): string => {
-  const [, langCode] = location.pathname.split("/");
+const getLangCodeFromPath = (langConfig: any[], pathName: string): string => {
+  const [, langCode] = pathName.split("/");
   if (langCode.length !== 2 || langConfig.findIndex((e) => e.code === langCode) === -1) return "";
   return langCode;
 };
 
 const LocaleList: React.FC<Props> = ({ location }) => {
+  // path name without path-prefix. /prefixed/en/url => /en/url
+  const pathName = location.pathname.replace(withPrefix("/"), "/");
+  // current locale
   const locale = useContext<string>(LocaleContext);
+  // locale information
   const { config, defaultLang, prefixDefault, localizedPath } = useLocalization();
-  const urlLangCode = getLangCodeFromUrl(config, location);
+  // language code from path name
+  const urlLangCode = getLangCodeFromPath(config, pathName);
 
   function onChange(e: React.ChangeEvent<HTMLSelectElement>): void {
     if (e.target.value === locale) return;
     // refresh the current page
-    const purePath = urlLangCode ? location.pathname.substr(3) : location.pathname;
+    const purePath = urlLangCode ? pathName.substr(3) : pathName;
     const path = localizedPath({
       defaultLang,
       prefixDefault,
