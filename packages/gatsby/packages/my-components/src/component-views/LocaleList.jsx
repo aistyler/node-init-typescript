@@ -6,7 +6,11 @@ let s = require("./locale-list.module.scss");
 s = s.default || s;
 
 export default ({ items, defaultValue, onChange }) => (
-  <select onChange={onChange} defaultValue={defaultValue} className={`form-select-sm ${s.localeSelect}`}>
+  <select
+    onChange={onChange}
+    defaultValue={defaultValue}
+    className={`form-select-sm ${s.localeSelect}`}
+  >
     {items.map((e) => (
       <option key={e.code} value={e.code}>
         {e.localName}

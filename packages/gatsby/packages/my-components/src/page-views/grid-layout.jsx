@@ -1,13 +1,13 @@
 /**
  * Grid layout
- * 
+ *
  * See https://getbootstrap.com/docs/4.0/layout/grid/
  */
 
 import React from "react";
 import { Row, Col, Container, ListGroup } from "react-bootstrap";
 
-import "./grid-layout.css"
+import "./grid-layout.css";
 
 const Layout = () => {
   return (
@@ -31,10 +31,18 @@ const Layout = () => {
           <Row className={`justify-content-center align-items-center`}>
             <Col className={``}>
               <ListGroup>
-                <ListGroup.Item action href="https://getbootstrap.com/docs/4.0/layout/grid/" target="_blank">
+                <ListGroup.Item
+                  action
+                  href="https://getbootstrap.com/docs/4.0/layout/grid/"
+                  target="_blank"
+                >
                   Bootstrap Grid Layout
                 </ListGroup.Item>
-                <ListGroup.Item action href="https://getbootstrap.com/docs/4.0/components/alerts/" target="_blank">
+                <ListGroup.Item
+                  action
+                  href="https://getbootstrap.com/docs/4.0/components/alerts/"
+                  target="_blank"
+                >
                   Bootstrap Components
                 </ListGroup.Item>
               </ListGroup>
