@@ -1,14 +1,11 @@
 const {
-  siteConfig: { defaultLangCode, enabledLocales: _enabledLocales },
+  localizationConfig: { defaultLangCode, defaultNS, ns, fallbackLng, enabledLocales },
 } = require("~/site-config");
-
-const defaultNS = `common`;
-const fallbackLng = `en`;
 
 const i18nextOptions = {
   lng: defaultLangCode,
   defaultNS,
-  ns: [defaultNS, "page-index", "page-login"],
+  ns,
   fallbackLng,
   initImmediate: false,
   interpolation: {
@@ -20,7 +17,6 @@ const i18nextOptions = {
     console.log(`*** Missing Key: ${lng}:${ns}.${key} => ${fallbackValue}`),
 };
 
-const enabledLocales = _enabledLocales.split(" ");
 module.exports = {
   defaultNS,
   i18nextOptions,

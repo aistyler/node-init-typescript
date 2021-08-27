@@ -1,7 +1,6 @@
 // gatsby-config.js
-//require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` });
 
-const { siteConfig, siteMetadata, pathPrefix } = require("./src/site-config");
+const { appManifest, siteMetadata, pathPrefix } = require("./src/site-config");
 
 const plugins_static_pages = require("./config/gc-plugins-static-pages");
 const plugins_common = require("./config/gc-plugins-common");
@@ -14,30 +13,10 @@ const flags = {
 module.exports = {
   siteMetadata,
   plugins: [
-    // manifest
+    // web app manifest
     {
-      // web app manifest (part of the PWA specification)
       resolve: `gatsby-plugin-manifest`,
-      options: {
-        background_color: siteConfig.backgroundColor,
-        theme_color: siteConfig.themeColor,
-        display: `minimal-ui`, // `stand-alone`
-        icons: [
-          {
-            src: "/img/android-chrome-192x192.png",
-            sizes: "192x192",
-            type: "image/png",
-          },
-          {
-            src: "/img/android-chrome-512x512.png",
-            sizes: "512x512",
-            type: "image/png",
-          },
-        ],
-        // localization
-        ...siteConfig.locales[0], // default
-        localize: siteConfig.locales.slice(1), // others
-      },
+      options: appManifest,
     },
 
     // static pages plugins

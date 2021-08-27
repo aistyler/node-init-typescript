@@ -12,12 +12,5 @@
     "name": "English",
     "localName": "English",
     "dateFormat": "MM/DD/YYYY"
-  },
-  {
-    "code": "de",
-    "hrefLang": "de-DE",
-    "name": "German",
-    "localName": "Deutsch",
-    "dateFormat": "DD.MM.YYYY"
   }
 ]

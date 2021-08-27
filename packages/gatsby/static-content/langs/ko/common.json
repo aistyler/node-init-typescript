@@ -1,16 +1,6 @@
 {
   "pageLoading": "로딩 중입니다.",
   "offlineMode": "응용서버와 연결되지 않았습니다.",
-  "helloWorld": "헬로 월드",
-  "indexNote": "인덱스 페이지입니다.",
-  "secondPageLink": "두번째 페이지로 이동",
-  "thirdPageLink": "세번째 페이지로 이동",
-  "indexPageLink": "인덱스 페이지로 이동",
-  "secondPageGermanLink": "두번째 페이지로 이동 (German)",
-  "indexPageEnglishLink": "인덱스 페이지로 이동 (English)",
-  "thirdPage": "세번째 페이지",
-  "thirdNote": "세번째 페이지입니다.",
-  "home": "홈",
   "notFound": "페이지를 찾을 수 없습니다.",
 
   "navibar.home": "홈",

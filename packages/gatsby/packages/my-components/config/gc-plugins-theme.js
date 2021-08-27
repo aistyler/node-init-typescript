@@ -1,7 +1,6 @@
 // theme plugins for gatsby-config.js
-const path = require("path");
 const {
-  siteConfig: { defaultLangCode, enabledLocales, localeConfigPath },
+  localizationConfig: { defaultLangCode, enabledLocales },
 } = require("../src/site-config");
 
 module.exports = [
@@ -21,9 +20,9 @@ module.exports = [
     resolve: `gatsby-theme-my-i18n`,
     options: {
       defaultLang: defaultLangCode,
-      locales: enabledLocales,
+      locales: enabledLocales.join(" "),
       prefixDefault: false,
-      configPath: require.resolve(localeConfigPath),
+      configPath: require.resolve("../src/site-config/locale-config.json"),
     },
   },
 ];
